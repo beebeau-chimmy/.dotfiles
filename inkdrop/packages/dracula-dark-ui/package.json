@@ -1,0 +1,62 @@
+{
+  "_from": "https://api.inkdrop.app/v1/packages/dracula-dark-ui/versions/1.1.0/tarball",
+  "_id": "dracula-dark-ui@1.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-gbYT27MUooRkb++05IkepEWpvRS/L/JWTl0IVo0V4TPFDdgGb+s0TJXDucfMvN2Tjpri38Br7V4UG87qinPYFA==",
+  "_location": "/dracula-dark-ui",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://api.inkdrop.app/v1/packages/dracula-dark-ui/versions/1.1.0/tarball",
+    "rawSpec": "https://api.inkdrop.app/v1/packages/dracula-dark-ui/versions/1.1.0/tarball",
+    "saveSpec": "https://api.inkdrop.app/v1/packages/dracula-dark-ui/versions/1.1.0/tarball",
+    "fetchSpec": "https://api.inkdrop.app/v1/packages/dracula-dark-ui/versions/1.1.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://api.inkdrop.app/v1/packages/dracula-dark-ui/versions/1.1.0/tarball",
+  "_shasum": "5782bffd48c551a7b2b3051e17112e899d27844c",
+  "_spec": "https://api.inkdrop.app/v1/packages/dracula-dark-ui/versions/1.1.0/tarball",
+  "_where": "/tmp/apm-install-dir-2024012-508875-18544zu.pfwo",
+  "author": {
+    "name": "Taylan Tatlı",
+    "email": "taylantatli[dot]gmail.com"
+  },
+  "browserslist": [
+    "Electron 7.1.13"
+  ],
+  "bugs": {
+    "url": "https://github.com/TaylanTatli/inkdrop-dracula-dark-ui-theme/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Dracula UI Theme for Inkdrop",
+  "devDependencies": {
+    "semantic-ui": "^2.4.2"
+  },
+  "engines": {
+    "inkdrop": "^4.x"
+  },
+  "homepage": "https://github.com/TaylanTatli/inkdrop-dracula-dark-ui-theme#readme",
+  "keywords": [
+    "inkdrop",
+    "markdown"
+  ],
+  "license": "MIT",
+  "name": "dracula-dark-ui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaylanTatli/inkdrop-dracula-dark-ui-theme.git"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "run": "gulp"
+  },
+  "styleSheets": [
+    "theme.min.css"
+  ],
+  "theme": "ui",
+  "version": "1.1.0"
+}

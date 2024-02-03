@@ -1,0 +1,48 @@
+/*******************************
+        Global Overrides
+*******************************/
+
+@sidebarMenuItemActiveBackground: @horizonAccent;
+@sidebarSyncStatusViewBackground: @horizonBackground;
+@sidebarScrollbarTrackBackground: @horizonBackground;
+@sidebarScrollbarThumbBackground: @horizonAccentAlt;
+
+@scrollbarTrackBackground: @sidebarScrollbarTrackBackground;
+@scrollbarThumbBackground: @sidebarScrollbarThumbBackground;
+
+@noteListBarBackground: @horizonBackground;
+@noteListBarPinnedSectionHeaderBackground: @horizonBackground;
+@noteListBarPinnedSectionHeaderBorderBottom: 1px solid @horizonBorder;
+@noteListBarPinnedSectionFooterBorderBottom: 1px solid @horizonSecondaryAccent;
+@noteListViewItemSeparatorBorder: 0;
+@noteListViewItemDateColor: @horizonLightText;
+@noteListViewItemTagColor: @horizonLightText;
+@noteListViewItemActiveBackground: @horizonAccent;
+@noteListViewItemFocusInnerShaddow: 0;
+@noteSearchBarBorderBottom: 0;
+
+@headerNoteMenuActionItemSeparatorBorder: 1px solid @horizonBorder;
+// Changing the note title and tags in the note header to be transparent rather than use the input background.
+.editor-header-title-input > input,
+.note-tags-bar-input > .ui.input > input {
+    background: transparent !important;
+}
+
+@preferencesSidebarBackground: @horizonBackground;
+@preferencesSidebarItemActiveBackground: @horizonAccent;
+@preferencesViewBackground: @horizonBackground;
+
+a {
+    color: @horizonSecondaryAccent;
+}
+
+a:hover {
+    color: @horizonTertiaryAccent;
+}
+
+.copy-button {
+    color: @horizonAccentAlt !important;
+}
+.editor-floating-actions .background {
+    background-color: @horizonBackgroundAlt !important;
+}

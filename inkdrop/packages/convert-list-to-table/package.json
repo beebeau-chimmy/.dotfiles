@@ -1,0 +1,46 @@
+{
+  "_from": "https://api.inkdrop.app/v1/packages/convert-list-to-table/versions/0.1.0/tarball",
+  "_id": "convert-list-to-table@0.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-vkY7ZIrnDIpPhv4el4erOp80Er9dSPX91GOcOPw9/UZRKE//R8zK+htwA6WtdMhI+ZTu9ft7PN1JXv/m2UGLTA==",
+  "_location": "/convert-list-to-table",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://api.inkdrop.app/v1/packages/convert-list-to-table/versions/0.1.0/tarball",
+    "rawSpec": "https://api.inkdrop.app/v1/packages/convert-list-to-table/versions/0.1.0/tarball",
+    "saveSpec": "https://api.inkdrop.app/v1/packages/convert-list-to-table/versions/0.1.0/tarball",
+    "fetchSpec": "https://api.inkdrop.app/v1/packages/convert-list-to-table/versions/0.1.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://api.inkdrop.app/v1/packages/convert-list-to-table/versions/0.1.0/tarball",
+  "_shasum": "931e6ca6887a0b601bf549267641c4b7bd63f656",
+  "_spec": "https://api.inkdrop.app/v1/packages/convert-list-to-table/versions/0.1.0/tarball",
+  "_where": "/tmp/apm-install-dir-2024010-420046-1n24gm8.r0gs",
+  "bugs": {
+    "url": "https://github.com/nabework123/inkdrop-convert-list-to-table/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Convert list to markdown table.",
+  "engines": {
+    "inkdrop": "^5.x"
+  },
+  "homepage": "https://github.com/nabework123/inkdrop-convert-list-to-table#readme",
+  "keywords": [
+    "list",
+    "table"
+  ],
+  "license": "MIT",
+  "main": "./lib/convert-list-to-table",
+  "name": "convert-list-to-table",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nabework123/inkdrop-convert-list-to-table.git"
+  },
+  "version": "0.1.0"
+}

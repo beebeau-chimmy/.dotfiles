@@ -1,0 +1,49 @@
+{
+  "_from": "https://api.inkdrop.app/v1/packages/nord-preview/versions/1.0.0/tarball",
+  "_id": "nord-preview@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-bDvjMQWGAXeQ1QWkiwA2/FRweZqlwDMVqQmsIx+4RAMpY1mCwIMn3KsKJTmgVvX1qLmC8QCRs2+fMy+pxOCf0w==",
+  "_location": "/nord-preview",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://api.inkdrop.app/v1/packages/nord-preview/versions/1.0.0/tarball",
+    "rawSpec": "https://api.inkdrop.app/v1/packages/nord-preview/versions/1.0.0/tarball",
+    "saveSpec": "https://api.inkdrop.app/v1/packages/nord-preview/versions/1.0.0/tarball",
+    "fetchSpec": "https://api.inkdrop.app/v1/packages/nord-preview/versions/1.0.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://api.inkdrop.app/v1/packages/nord-preview/versions/1.0.0/tarball",
+  "_shasum": "0100570c37a3ea5f274340fa0c9a9791ba0e4915",
+  "_spec": "https://api.inkdrop.app/v1/packages/nord-preview/versions/1.0.0/tarball",
+  "_where": "/tmp/apm-install-dir-202409-398500-13hdxix.ygzbl",
+  "author": {
+    "name": "choco14t",
+    "email": "chocoh14t@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/choco14t/inkdrop-nord-preview-theme/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Nord preview theme for Inkdrop Markdown Editor",
+  "engines": {
+    "inkdrop": "^4.x"
+  },
+  "homepage": "https://github.com/choco14t/inkdrop-nord-preview-theme#readme",
+  "license": "MIT",
+  "name": "nord-preview",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choco14t/inkdrop-nord-preview-theme.git"
+  },
+  "styleSheets": [
+    "github-markdown.less",
+    "nord.less"
+  ],
+  "theme": "preview",
+  "version": "1.0.0"
+}

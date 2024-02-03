@@ -1,0 +1,205 @@
+@import "./colors";
+
+.mde-preview {
+  color: fade(@horizonText, 90%);
+  background-color: @horizonBackground;
+  line-height: 1.5;
+}
+
+.mde-preview:before {
+  display: table;
+  content: "";
+}
+
+.mde-preview:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.mde-preview {
+  // *** Headings ***
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: fade(@horizonText, 87.5%);
+  }
+
+  h1 {
+    font-size: 2.25em;
+    padding-bottom: 0.3em;
+    line-height: 1.2;
+    border-bottom: 1px solid fade(@horizonText, 40%);
+  }
+
+  h2 {
+    font-size: 1.75em;
+    padding-bottom: 0.3em;
+    line-height: 1.225;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+  }
+
+  h4 {
+    font-size: 1.25em;
+  }
+
+  h5 {
+    font-size: 1em;
+  }
+
+  h6 {
+    font-size: 0.9em;
+    color: fade(@horizonText, 62.5%);
+  }
+
+  hr {
+    background-color: fade(@horizonText, 30%);
+  }
+
+  // *** Text Elements ***
+
+  a {
+    background-color: transparent;
+    color: @markdownLink;
+  }
+
+  strong, em {
+    color: @horizonText;
+  }
+
+  blockquote {
+    padding: 0 15px;
+    color: fade(@horizonText, 40%);
+    border-left: 4px solid fade(@horizonText, 10%);
+  }
+
+  input {
+    color: inherit;
+  }
+
+  img {
+    border: 0;
+    background-color: transparent;
+  }
+
+
+  // *** Tables ***
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  table th,
+  table td {
+    padding: 6px 13px;
+    border: 1px solid fade(@horizonText, 30%);
+  }
+
+  table tr {
+    background-color: transparent;
+    border-top: 1px solid fade(@horizonText, 25%);
+  }
+
+  table tr:nth-child(2n) {
+    background-color: fade(@horizonText, 4%);
+  }
+
+  // *** Code Blocks ***
+
+  code {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: fade(@horizonShadow, 70%);
+    border-radius: 6px;
+  }
+
+  code:before,
+  code:after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+  }
+
+  pre > code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre {
+    padding: 16px;
+    overflow: auto;
+    word-wrap: normal;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: fade(@horizonShadow, 70%);
+    border-radius: 6px;
+  }
+
+  pre code {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code:before,
+  pre code:after {
+    content: normal;
+  }
+
+  // *** Syntax Highlighting (Code Mirror) ***
+
+  .cm-header {color: @cmHeader;}
+  .cm-quote {color: @cmQuote; font-style: italic;}
+  .cm-negative {color: @cmNegative;}
+  .cm-positive {color: @cmPositive;}
+  .cm-header, .cm-strong {font-weight: bold;}
+  .cm-em {font-style: italic;}
+  .cm-link {text-decoration: underline;}
+  .cm-strikethrough {text-decoration: line-through;}
+
+  .cm-keyword {color: @cmKeyword; font-weight: normal;}
+  .cm-atom {color: @cmAtom;}
+  .cm-number {color: @cmNumber;}
+  .cm-def {color: @cmDef;}
+  .cm-property {color: @cmProperty;}
+  .cm-operator {color: @cmOperator;}
+  .cm-variable,
+  .cm-punctuation {color: @cmVariable}
+  .cm-variable-2 {color: @cmVariable2;}
+  .cm-variable-3, .cm-type {color: rgba(255, 255, 255, 0.8);}
+  .cm-comment {color: @cmComment; font-style: italic;}
+  .cm-string {color: @cmString;}
+  .cm-string-2 {color: @cmString2;}
+  .cm-meta {color: @cmMeta;}
+  .cm-qualifier {color: @cmQualifier;}
+  .cm-builtin {color: @cmBuiltin;}
+  .cm-bracket {color: @cmBracket;}
+  .cm-tag {color: @cmTag;}
+  .cm-attribute {color: @cmAttribute;}
+  .cm-hr {color: @cmHR;}
+  .cm-link {color: @cmLink;}
+
+  .cm-error {color: @cmError;}
+}

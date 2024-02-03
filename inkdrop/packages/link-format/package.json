@@ -1,0 +1,61 @@
+{
+  "_from": "https://api.inkdrop.app/v1/packages/link-format/versions/1.0.1/tarball",
+  "_id": "link-format@1.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-tRnardK3jcBowa4dASOH5R68Xa27RITXWdJU3WRgxslCSDJSJ7rYG5hfcoUk4xyS7Je3yNLHttEiOMd5MCWQzQ==",
+  "_location": "/link-format",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://api.inkdrop.app/v1/packages/link-format/versions/1.0.1/tarball",
+    "rawSpec": "https://api.inkdrop.app/v1/packages/link-format/versions/1.0.1/tarball",
+    "saveSpec": "https://api.inkdrop.app/v1/packages/link-format/versions/1.0.1/tarball",
+    "fetchSpec": "https://api.inkdrop.app/v1/packages/link-format/versions/1.0.1/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://api.inkdrop.app/v1/packages/link-format/versions/1.0.1/tarball",
+  "_shasum": "34b99ea993c4552327b08b7d9df2b2a8abcdd2c6",
+  "_spec": "https://api.inkdrop.app/v1/packages/link-format/versions/1.0.1/tarball",
+  "_where": "/tmp/apm-install-dir-202412-130912-1il1nrp.ukto",
+  "bugs": {
+    "url": "https://github.com/muroon/inkdrop-link-format/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Replaces URLs as a Markdown link",
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.1",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.23.2",
+    "jest": "^26.6.3",
+    "jest-fetch-mock": "^3.0.3",
+    "prettier": "^2.2.1"
+  },
+  "engines": {
+    "inkdrop": "^5.x"
+  },
+  "homepage": "https://github.com/muroon/inkdrop-link-format#readme",
+  "keywords": [],
+  "license": "MIT",
+  "main": "./lib/index",
+  "name": "link-format",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muroon/inkdrop-link-format.git"
+  },
+  "scripts": {
+    "fix:eslint": "npx eslint \"lib/*.js\" --fix",
+    "fix:prettier": "npx prettier --write ./lib",
+    "lint:eslint": "npx eslint \"lib/*.js\"",
+    "lint:prettier": "npx prettier --check ./lib",
+    "test": "jest"
+  },
+  "version": "1.0.1"
+}

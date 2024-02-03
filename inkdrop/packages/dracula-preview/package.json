@@ -1,0 +1,45 @@
+{
+  "_from": "https://api.inkdrop.app/v1/packages/dracula-preview/versions/1.1.0/tarball",
+  "_id": "dracula-preview@1.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-1iIAR4nEMMUCQq0gaJJO3TPtNVkXVygLP+Yi70rw78swgLGfK402wrPq7YqhISbgrq/KNtyqlNhEdlegxoXs3Q==",
+  "_location": "/dracula-preview",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://api.inkdrop.app/v1/packages/dracula-preview/versions/1.1.0/tarball",
+    "rawSpec": "https://api.inkdrop.app/v1/packages/dracula-preview/versions/1.1.0/tarball",
+    "saveSpec": "https://api.inkdrop.app/v1/packages/dracula-preview/versions/1.1.0/tarball",
+    "fetchSpec": "https://api.inkdrop.app/v1/packages/dracula-preview/versions/1.1.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://api.inkdrop.app/v1/packages/dracula-preview/versions/1.1.0/tarball",
+  "_shasum": "34b9b28037758702be05428633023d3aa10568c1",
+  "_spec": "https://api.inkdrop.app/v1/packages/dracula-preview/versions/1.1.0/tarball",
+  "_where": "/tmp/apm-install-dir-2024012-508939-11pl7bn.savt",
+  "bugs": {
+    "url": "https://github.com/TaylanTatli/inkdrop-dracula-preview-theme/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Dracula preview theme for Inkdrop Markdown Editor",
+  "engines": {
+    "inkdrop": "^4.x"
+  },
+  "homepage": "https://github.com/TaylanTatli/inkdrop-dracula-preview-theme#readme",
+  "license": "MIT",
+  "name": "dracula-preview",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaylanTatli/inkdrop-dracula-preview-theme.git"
+  },
+  "styleSheets": [
+    "dracula-markdown.less",
+    "dracula-markdown-dark.less"
+  ],
+  "theme": "preview",
+  "version": "1.1.0"
+}

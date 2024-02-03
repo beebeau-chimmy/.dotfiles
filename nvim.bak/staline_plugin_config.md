@@ -1,0 +1,105 @@
+```lua
+-- staline.nvim ( replacment for barbar and lualine in one )
+  -- use {
+  --   'tamton-aquib/staline.nvim',
+  --   config = function()
+  --     vim.cmd([[
+  --       highlight catppuccin_pink guifg=#1E1E2E guibg=#F5C2E7
+  --       highlight catppuccin_sky guifg=#1E1E2E guibg=#89DCEB
+  --       highlight catppuccin_yellow guifg=#1E1E2E guibg=#FAE3B0
+  --       highlight catppuccin_peach guifg=#1E1E2E guibg=#F8BD96
+  --     ]])
+  --
+  --
+  --     require('staline').setup({
+  --     sections = {
+  --       left = {
+  --         ' ', 'right_sep', '-mode', 'left_sep', ' ',
+  --         'right_sep', 'lsp', 'left_sep',
+  --         '-branch', 'left_sep', ' '
+  --       },
+  --
+  --       mid  = {
+  --         'right_sep', { 'catppuccin_pink', '-file_name' }, 'left_sep'
+  --       },
+  --
+  --       right= {
+  --         { 'catppuccin_sky', 'right_sep', '-lsp_name' },
+  --         'right_sep', '-cool_symbol',
+  --         { 'catppuccing_peach', 'right_sep', '-line_column', 'left_sep', ' ' }
+  --       }
+  --     },
+  --
+  --     -- sections = {
+  --     --   left = {
+  --     --     ' ', 'right_sep', '-mode', 'left_sep', ' ',
+  --     --     'right_sep', 'lsp', 'left_sep',
+  --     --     '-branch', 'left_sep', ' '
+  --     --   },
+  --     --
+  --     --   mid  = {
+  --     --     'right_sep', '-file_name', 'left_sep'
+  --     --   },
+  --     --
+  --     --   right= {
+  --     --     'right_sep', '-lsp_name',
+  --     --     'right_sep', '-cool_symbol',
+  --     --     'right_sep', '-line_column', 'left_sep', ' '
+  --     --   }
+  --     -- },
+  --
+  --     -- sections = {
+  --     --   left = {
+  --     --     { ' ', 'right_sep', 'mode', 'left_sep', ' ' },
+  --     --     { 'right_sep', 'lsp', 'left_sep'},
+  --     --     { 'branch', 'left_sep', ' ' }
+  --     --   },
+  --     --
+  --     --   mid  = {
+  --     --     { 'catppuccin_pink', 'right_sep', 'file_name', 'left_sep' }
+  --     --   },
+  --     --
+  --     --   right= {
+  --     --     { 'catppuccin_sky', 'right_sep', 'lsp_name' },
+  --     --     { 'right_sep', 'cool_symbol' },
+  --     --     { 'catppuccing_peach', 'right_sep', 'line_column', 'left_sep', ' ' }
+  --     --   }
+  --     -- },
+  --
+  --     defaults={
+  --       fg = '#F5C2E7',
+  --       bg = '#161320',
+  --       cool_symbol = "  ",
+  --       left_separator = "",
+  --       right_separator = "",
+  --       true_colors = true,
+  --       line_column = '%p%% | %l:%c'
+  --       -- line_column = '%l:%c'
+  --       -- font_active = "bold"
+  --     },
+  --
+  --     mode_icons = {
+  --       n  = 'NORMAL',
+  --       i  = 'INSERT',
+  --       c  = 'COMMAND',
+  --       v  = 'VISUAL'
+  --     },
+  --
+  --     mode_colors = {
+  --       n  = '#C9CBFF',
+  --       i  = '#ABE9B3',
+  --       ic = '#B5E8E0',
+  --       c  = '#96CDFB',
+  --       v  = '#F8BD96'       -- etc
+  --     },
+  --
+  --     lsp_symbols = {
+  --       Error=' ',
+  --       Info=' ',
+  --       Warn=' ',
+  --       Hint='',
+  --     }
+  --   })
+  --   end
+  -- }
+```

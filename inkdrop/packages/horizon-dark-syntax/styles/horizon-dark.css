@@ -1,0 +1,173 @@
+.editor {
+  /* All 'dem swatches */
+  /* Active Line Highlight support */
+}
+.editor .CodeMirror {
+  background-color: #1C1E26;
+}
+.editor .CodeMirror-scroll,
+.editor .CodeMirror-dialog {
+  color: #D5D8DA;
+}
+.editor .CodeMirror-gutters {
+  background-color: transparent;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+.editor .CodeMirror-linenumber {
+  color: #BBBBBB;
+}
+.editor .CodeMirror-selected {
+  background-color: #2E303E;
+}
+.editor .CodeMirror-focused .CodeMirror-selected {
+  background-color: #2E303E;
+}
+.editor .CodeMirror-cursor {
+  border-left: 1px solid #E95678;
+}
+.editor .CodeMirror-matchingbracket,
+.editor .CodeMirror-matchingtag {
+  background: rgba(108, 111, 147, 0.5) !important;
+  color: rgba(213, 216, 218, 0.5) !important;
+  border-bottom: 1px solid rgba(108, 111, 147, 0) !important;
+}
+.editor .CodeMirror-foldgutter-open:after {
+  color: #BBBBBB;
+}
+.editor .CodeMirror-foldgutter-folded:after {
+  color: #BBBBBB;
+}
+.editor .CodeMirror.over-gutter .CodeMirror-foldgutter-open:after,
+.editor .CodeMirror-activeline .CodeMirror-foldgutter-open:after {
+  color: #BBBBBB;
+}
+.editor .CodeMirror-foldmarker {
+  border-color: #2E303E;
+  background-color: #2E303E;
+  color: rgba(213, 216, 218, 0.65);
+}
+.editor .CodeMirror .CodeMirror-linewidget img.inline-widget {
+  background: rgba(0, 0, 0, 0.1);
+}
+.editor .cm-searching {
+  background-color: rgba(233, 86, 120, 0.35);
+  color: white !important;
+}
+.editor .CodeMirror .cm-atom {
+  color: #F09383;
+}
+.editor .CodeMirror .cm-attribute {
+  color: #F09383;
+}
+.editor .CodeMirror .cm-bracket {
+  color: #f99157;
+}
+.editor .CodeMirror .cm-builtin {
+  color: #D5D8DA;
+}
+.editor .CodeMirror .cm-comment {
+  color: rgba(187, 187, 187, 0.3);
+  font-style: italic;
+}
+.editor .CodeMirror .cm-def {
+  color: #25B2BC;
+}
+.editor .CodeMirror .cm-em {
+  color: #25B2BC;
+}
+.editor .CodeMirror .cm-error {
+  color: #F43E5C;
+}
+.editor .CodeMirror .cm-header {
+  color: #E95678;
+}
+.editor .CodeMirror .cm-hr {
+  color: #999;
+}
+.editor .CodeMirror .cm-keyword {
+  color: #B877DB;
+}
+.editor .CodeMirror .cm-link {
+  color: #F09383;
+  text-underline-position: under;
+}
+.editor .CodeMirror .cm-meta {
+  color: #25B2BC;
+}
+.editor .CodeMirror .cm-number {
+  color: #F09383;
+}
+.editor .CodeMirror .cm-operator {
+  color: #BBBBBB;
+}
+.editor .CodeMirror .cm-property {
+  color: #D5D8DA;
+}
+.editor .CodeMirror .cm-qualifier {
+  color: #FAB795;
+}
+.editor .CodeMirror .cm-quote {
+  color: #FAB795;
+  font-style: italic;
+}
+.editor .CodeMirror .cm-string {
+  color: #FAC29A;
+}
+.editor .CodeMirror .cm-string-2 {
+  color: #FAC29A;
+}
+.editor .CodeMirror .cm-strong {
+  color: #B877DB;
+}
+.editor .CodeMirror .cm-tag {
+  color: #E95678;
+}
+.editor .CodeMirror .cm-variable {
+  color: #D5D8DA;
+}
+.editor .CodeMirror .cm-variable-2 {
+  color: #D5D8DA;
+}
+.editor .CodeMirror .cm-variable-3 {
+  color: #E95678;
+}
+.editor .CodeMirror .cm-minus,
+.editor .CodeMirror .cm-plus,
+.editor .CodeMirror .cm-rangeinfo {
+  color: #D5D8DA;
+}
+.editor .CodeMirror .cm-formatting-header {
+  opacity: 0.3;
+}
+.editor .CodeMirror .cm-whitespace::before {
+  color: #2E303E;
+  opacity: 0.4;
+}
+.editor .CodeMirror .cm-formatting-quote,
+.editor .CodeMirror .cm-formatting-strong,
+.editor .CodeMirror .cm-formatting-em {
+  opacity: 0.6;
+}
+.editor .CodeMirror .cm-formatting-image {
+  color: #E95678;
+}
+.editor .CodeMirror .CodeMirror-code > div > pre > span::after,
+.editor .CodeMirror .CodeMirror-line > span::after {
+  color: #2E303E;
+  opacity: 0.4;
+}
+.editor .CodeMirror .cm-inline-code {
+  background: rgba(0, 0, 0, 0.1);
+  color: #D5D8DA;
+}
+.editor .CodeMirror .gfm-codeblock-bg.CodeMirror-linebackground {
+  background: rgba(0, 0, 0, 0.1);
+}
+.editor .CodeMirror .cm-table-sep,
+.editor .CodeMirror .table-row.table-row-1 {
+  color: #BBBBBB;
+}
+.editor .CodeMirror-activeline-background,
+.editor .CodeMirror-activeline-gutter {
+  background-color: rgba(46, 48, 62, 0.1) !important;
+}

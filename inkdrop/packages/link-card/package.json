@@ -1,0 +1,67 @@
+{
+  "_from": "https://api.inkdrop.app/v1/packages/link-card/versions/0.4.4/tarball",
+  "_id": "link-card@0.4.4",
+  "_inBundle": false,
+  "_integrity": "sha512-N+yF1KDx3m083O8fQ0mEEirm71bT6nMigXDR0576h3xwiOje1OpMagcEcw/DS02P51/EsA6stfJWtmzNz2QZQQ==",
+  "_location": "/link-card",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://api.inkdrop.app/v1/packages/link-card/versions/0.4.4/tarball",
+    "rawSpec": "https://api.inkdrop.app/v1/packages/link-card/versions/0.4.4/tarball",
+    "saveSpec": "https://api.inkdrop.app/v1/packages/link-card/versions/0.4.4/tarball",
+    "fetchSpec": "https://api.inkdrop.app/v1/packages/link-card/versions/0.4.4/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://api.inkdrop.app/v1/packages/link-card/versions/0.4.4/tarball",
+  "_shasum": "cc11e2356d821dd92792919bfa9f78f8c53a1159",
+  "_spec": "https://api.inkdrop.app/v1/packages/link-card/versions/0.4.4/tarball",
+  "_where": "/tmp/apm-install-dir-202412-132082-g8086x.w03cv",
+  "bugs": {
+    "url": "https://github.com/elpnt/inkdrop-link-card/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "open-graph-scraper": "^4.11.0"
+  },
+  "deprecated": false,
+  "description": "Expand links as cards",
+  "devDependencies": {
+    "@swc/cli": "^0.1.51",
+    "@swc/core": "^1.2.108",
+    "@types/node": "^14.0.13",
+    "@types/react": "^16.9.36",
+    "chokidar": "^3.5.2",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "prettier": "^2.0.5"
+  },
+  "engines": {
+    "inkdrop": "^5.x"
+  },
+  "homepage": "https://github.com/elpnt/inkdrop-link-card#readme",
+  "license": "MIT",
+  "main": "./lib/index",
+  "name": "link-card",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elpnt/inkdrop-link-card.git"
+  },
+  "scripts": {
+    "build": "swc src/ -d lib/",
+    "eslint": "eslint src",
+    "fix": "yarn fix:eslint && yarn fix:prettier",
+    "fix:eslint": "eslint --fix",
+    "fix:prettier": "prettier --write src",
+    "lint": "yarn eslint && yarn prettier",
+    "prettier": "prettier --check src",
+    "watch": "swc -w src/ -d lib/"
+  },
+  "version": "0.4.4"
+}

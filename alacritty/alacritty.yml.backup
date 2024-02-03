@@ -1,0 +1,187 @@
+window:
+  decorations: full
+  startup_mode: Windowed
+  dynamic_padding: false
+  opacity: 1.0
+  dimensions:
+    columns: 130
+    lines: 35
+
+scrolling:
+  history: 0
+  mulitplier: 0
+
+font:
+  normal:
+    # family: "Iosevka Nerd Font Mono"
+    family: "Caskaydia Cove Nerd Font Mono"
+    # family: 'JetBrains Mono Nerd Font '
+    # family: 'Blex Mono Nerd Font'
+    style: Regular
+
+  bold:
+    # family: "Iosevka Nerd Font Mono"
+    family: "Caskaydia Cove Nerd Font Mono"
+    # family: 'JetBrains Mono Nerd Font '
+    # family: 'Blex Mono Nerd Font'
+    style: Bold
+
+  italic:
+    # family: "Iosevka Nerd Font Mono"
+    family: "Caskaydia Cove Nerd Font Mono"
+    # family: 'JetBrains Mono Nerd Font '
+    # family: 'Blex Mono Nerd Font'
+    style: Italic
+
+  size: 12.5
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  hide_when_typing: true
+
+# URL Launcher
+url:
+  launcher:
+    program: /usr/bin/firefox
+
+  modifiers: Control|Shift
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  save_to_clipboard: true
+
+cursor:
+  style: Beam
+  unfocused_hollow: true
+
+custom_cursor_colors: true
+draw_bold_text_with_bright_colors: true
+
+# import:
+#   - ~/.alacritty-colorscheme/themes/moonlight_ii_vscode.yaml
+# - ~/.alacritty-colorscheme/themes/dark_pastels.yaml.yaml
+bell:
+  animation: EaseOutExpo
+  color: '0xffffff'
+  duration: 0
+
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - 'tmux'
+
+# Key Bindings
+key_bindings:
+  # Search Mode
+  - { key: Return, mode: Search|Vi, action: SearchConfirm }
+  - { key: Escape, mode: Search, action: SearchCancel }
+  - {
+      key: C,
+      mods: Control,
+      mode: Search,
+      action: SearchCancel
+    }
+  - {
+      key: U,
+      mods: Control,
+      mode: Search,
+      action: SearchClear
+    }
+  - {
+      key: W,
+      mods: Control,
+      mode: Search,
+      action: SearchDeleteWord
+    }
+  - {
+      key: P,
+      mods: Control,
+      mode: Search,
+      action: SearchHistoryPrevious
+    }
+  - {
+      key: N,
+      mods: Control,
+      mode: Search,
+      action: SearchHistoryNext
+    }
+  - { key: Up, mode: Search, action: SearchHistoryPrevious }
+  - { key: Down, mode: Search, action: SearchHistoryNext }
+  - { key: Return, mode: Search|~Vi, action: SearchFocusNext }
+  - {
+      key: Return,
+      mods: Shift,
+      mode: Search|~Vi,
+      action: SearchFocusPrevious
+    }
+
+  # (Windows, Linux, and BSD only)
+  - { key: V, mods: Control|Shift, mode: ~Vi, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - {
+      key: F,
+      mods: Control|Shift,
+      mode: ~Search,
+      action: SearchForward
+    }
+  - {
+      key: B,
+      mods: Control|Shift,
+      mode: ~Search,
+      action: SearchBackward
+    }
+  - {
+      key: C,
+      mods: Control|Shift,
+      mode: Vi|~Search,
+      action: ClearSelection
+    }
+  - { key: Insert, mods: Shift, action: PasteSelection }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Plus, mods: Control, action: IncreaseFontSize }
+  - {
+      key: NumpadAdd,
+      mods: Control,
+      action: IncreaseFontSize
+    }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+  - {
+      key: NumpadSubtract,
+      mods: Control,
+      action: DecreaseFontSize
+    }
+
+live_config_reload: true
+colors:
+  name: jmbi
+  author: jmbi
+  primary:
+    background: "#1e1e1e"
+    foreground: "#ffffff"
+  cursor:
+    text: "#1e1e1e"
+    cursor: "#ffffff"
+  normal:
+    black: "#5A7260"
+    red: "#8F423C"
+    green: "#BBBB88"
+    yellow: "#F9D25B"
+    blue: "#E0BA69"
+    magenta: "#709289"
+    cyan: "#D13516"
+    white: "#EFE2E0"
+  bright:
+    black: "#8DA691"
+    red: "#EEAA88"
+    green: "#CCC68D"
+    yellow: "#EEDD99"
+    blue: "#C9B957"
+    magenta: "#FFCBAB"
+    cyan: "#C25431"
+    white: "#F9F1ED"
+theme: Jmbi

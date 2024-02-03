@@ -1,0 +1,57 @@
+{
+  "_from": "https://api.inkdrop.app/v1/packages/vim/versions/2.2.2/tarball",
+  "_id": "vim@2.2.2",
+  "_inBundle": false,
+  "_integrity": "sha512-y4Kev/KDYw7D4ZjOvkQFCUSSHTiqwD+zSFrEk+vkqRbxWtpBwKVxKaqim0KNLGpWcZ6IERkkCXzmVsUOgjnZ5w==",
+  "_location": "/vim",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://api.inkdrop.app/v1/packages/vim/versions/2.2.2/tarball",
+    "rawSpec": "https://api.inkdrop.app/v1/packages/vim/versions/2.2.2/tarball",
+    "saveSpec": "https://api.inkdrop.app/v1/packages/vim/versions/2.2.2/tarball",
+    "fetchSpec": "https://api.inkdrop.app/v1/packages/vim/versions/2.2.2/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://api.inkdrop.app/v1/packages/vim/versions/2.2.2/tarball",
+  "_shasum": "3e556b6c2ea9443ce2b9bf08e0479073fbc33f12",
+  "_spec": "https://api.inkdrop.app/v1/packages/vim/versions/2.2.2/tarball",
+  "_where": "/tmp/apm-install-dir-202408-350438-1auubls.qkj7",
+  "bugs": {
+    "url": "https://github.com/inkdropapp/inkdrop-vim/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "vim keybindings",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.3",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-react": "^7.16.0",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.0"
+  },
+  "engines": {
+    "inkdrop": "^5.x"
+  },
+  "homepage": "https://github.com/inkdropapp/inkdrop-vim#readme",
+  "keywords": [],
+  "license": "MIT",
+  "main": "./lib/vim",
+  "name": "vim",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inkdropapp/inkdrop-vim.git"
+  },
+  "scripts": {
+    "build": "babel src/ -d lib/",
+    "dev": "babel src/ -s -d lib/ --watch"
+  },
+  "version": "2.2.2"
+}

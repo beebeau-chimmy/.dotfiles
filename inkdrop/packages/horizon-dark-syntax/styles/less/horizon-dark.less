@@ -1,0 +1,141 @@
+@import "./colors";
+
+.editor {
+
+  .CodeMirror {
+    // Background color of main window
+    background-color: @cmBackground;
+  }
+  .CodeMirror-scroll, .CodeMirror-dialog {
+    // Color of otherwise un-styled text
+    color: @cmUnstyledText;
+  }
+  .CodeMirror-gutters {
+    // Gutter to the left
+    background-color: transparent;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .CodeMirror-linenumber {
+    // Line numbers in the gutter
+    color: @cmLineNumber;
+  }
+  .CodeMirror-selected {
+    // Highlighed text
+    background-color: @cmSelectedText;
+  }
+  .CodeMirror-focused .CodeMirror-selected {
+    // Highlighed text
+    background-color: @cmSelectedText;
+  }
+  .CodeMirror-cursor {
+    // The cursor
+    border-left: 1px solid @cmCursor;
+  }
+  .CodeMirror-matchingbracket,
+  .CodeMirror-matchingtag {
+    // When you click a tag/bracket and the matching one is highlighted
+    background: @cmMatchingBracketBackground !important;
+    color: @cmMatchingBracketColor !important;
+    border-bottom: 1px solid @cmMatchingBracketUnderline !important;
+  }
+  .CodeMirror-foldgutter-open:after {
+    // Those little arrows in the gutter
+    color: @cmArrows;
+  }
+  .CodeMirror-foldgutter-folded:after {
+    // The arrows after you collapse code
+    color: @cmArrows;
+  }
+  .CodeMirror.over-gutter,
+  .CodeMirror-activeline {
+    .CodeMirror-foldgutter-open:after {
+      // Arrows when hovering on the gutter
+      color: @cmArrows;
+    }
+  }
+  .CodeMirror-foldmarker {
+    // The [...] marking collapsed code
+    border-color: @cmFoldMarkerColor;
+    background-color: @cmFoldMarkerColor;
+    color: @cmFoldMarkerText;
+  }
+  .CodeMirror .CodeMirror-linewidget img.inline-widget {
+    background: rgba(0,0,0,0.1);
+  }
+  .cm-searching {
+    // Ctrl + F results
+    background-color: @cmSearchResultBackground;
+    color: white !important;
+  }
+
+  /* All 'dem swatches */
+
+  .CodeMirror {
+    .cm-atom { color: @cmAtom; }
+    .cm-attribute { color: @cmAttribute; }
+    .cm-bracket { color: @cmBracket; }
+    .cm-builtin { color: @cmBuiltin; }
+    .cm-comment { color: @cmComment; font-style: italic; }
+    .cm-def { color: @cmDef; }
+    .cm-em { color: @cmEm; }
+    .cm-error { color: @cmError; }
+    .cm-header { color: @cmHeader; }
+    .cm-hr { color: @cmHR; }
+    .cm-keyword { color: @cmKeyword; }
+    .cm-link { color: @cmLink; text-underline-position: under; }
+    .cm-meta { color: @cmMeta; }
+    .cm-number { color: @cmNumber; } 
+    .cm-operator { color: @cmOperator; }
+    .cm-property { color: @cmProperty; }
+    .cm-qualifier { color: @cmQualifier; }
+    .cm-quote { color: @cmQuote; font-style: italic; }
+    .cm-string { color: @cmString; }
+    .cm-string-2 { color: @cmString2; }
+    .cm-strong { color: @cmStrong; }
+    .cm-tag { color: @cmTag; }
+    .cm-variable { color: @cmVariable; }
+    .cm-variable-2 { color: @cmVariable2; }
+    .cm-variable-3 { color: @cmVariable3; }
+
+    // The rest of these dont have a specific color, so they will be tied to existing horizon colors.
+    
+    .cm-minus,
+    .cm-plus,
+    .cm-rangeinfo {
+      color: @horizonText;
+    }
+    .cm-formatting-header {
+      opacity: 0.3;
+    }
+    .cm-whitespace::before {
+      color: @horizonAccent;
+      opacity: 0.4;
+    }
+    .cm-formatting-quote, .cm-formatting-strong, .cm-formatting-em {
+      opacity: 0.6;
+    }
+    .cm-formatting-image {
+      color: @horizonCranberry;
+    }
+    // carriage return
+    .CodeMirror-code > div > pre > span::after, .CodeMirror-line > span::after {
+      color: @horizonAccent;
+      opacity: 0.4;
+    }
+    .cm-inline-code {
+      background: rgba(0, 0, 0, 0.1);
+      color: @horizonText;
+    }
+    .gfm-codeblock-bg.CodeMirror-linebackground {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    .cm-table-sep, .table-row.table-row-1 {
+      color: @horizonText2;
+    }
+  }
+
+  /* Active Line Highlight support */
+  .CodeMirror-activeline-background, .CodeMirror-activeline-gutter {
+    background-color: fade(@horizonAccent, 10%) !important;
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "_from": "https://api.inkdrop.app/v1/packages/backlinks/versions/1.0.1/tarball",
+  "_id": "backlinks@1.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-Dliybom6KHl6y14CKEOjgOgiOJDDG/vLxSSJ/78GtPA0rQpC4jtxj7XC97KhFbbxpyW90IXsSkrYHI785ccWcA==",
+  "_location": "/backlinks",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://api.inkdrop.app/v1/packages/backlinks/versions/1.0.1/tarball",
+    "rawSpec": "https://api.inkdrop.app/v1/packages/backlinks/versions/1.0.1/tarball",
+    "saveSpec": "https://api.inkdrop.app/v1/packages/backlinks/versions/1.0.1/tarball",
+    "fetchSpec": "https://api.inkdrop.app/v1/packages/backlinks/versions/1.0.1/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://api.inkdrop.app/v1/packages/backlinks/versions/1.0.1/tarball",
+  "_shasum": "51038069e53a48934d464dd71e1916528a209d55",
+  "_spec": "https://api.inkdrop.app/v1/packages/backlinks/versions/1.0.1/tarball",
+  "_where": "/tmp/apm-install-dir-202412-131683-1c5rk95.8gy4",
+  "author": {
+    "name": "Keisir"
+  },
+  "bugs": {
+    "url": "https://github.com/Keisir/inkdrop-backlinks/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Show backlinks in the editor",
+  "devDependencies": {
+    "@types/codemirror": "^5.60.5",
+    "@types/event-kit": "^2.4.1",
+    "@types/pouchdb-core": "^7.0.11",
+    "@types/react": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "electron": "^24.7.1",
+    "eslint": "^8.47.0",
+    "event-kit": "^2.5.3",
+    "inkdrop-model": "^2.7.1",
+    "prettier": "^3.0.2",
+    "prettier-plugin-organize-imports": "^3.2.3",
+    "typescript": "^5.1.6"
+  },
+  "engines": {
+    "inkdrop": "^5.3.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "clear",
+            "info",
+            "error",
+            "warn"
+          ]
+        }
+      ],
+      "arrow-body-style": [
+        "error",
+        "as-needed"
+      ]
+    }
+  },
+  "homepage": "https://github.com/Keisir/inkdrop-backlinks#readme",
+  "license": "MIT",
+  "main": "lib/plugin",
+  "name": "backlinks",
+  "prettier": {
+    "singleQuote": true,
+    "semi": true,
+    "trailingComma": "none",
+    "printWidth": 150,
+    "tabWidth": 4,
+    "arrowParens": "always",
+    "bracketSameLine": true,
+    "endOfLine": "auto",
+    "singleAttributePerLine": true,
+    "plugins": [
+      "prettier-plugin-organize-imports"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Keisir/inkdrop-backlinks.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --ext .ts --ignore-pattern 'node_modules/*'",
+    "prettier-check": "prettier **/*.{ts,tsx,less,yml,json} --ignore-path .gitignore --check",
+    "prettier-format": "prettier **/*.{ts,tsx,less,yml,json} --ignore-path .gitignore --write",
+    "watch": "tsc -w"
+  },
+  "version": "1.0.1"
+}

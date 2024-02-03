@@ -1,0 +1,89 @@
+/* Variables */
+@height: 7em;
+@wideWidth: @height * 1.9;
+
+.link-card-anchor:hover {
+  text-decoration: none !important;
+}
+
+.link-card {
+  border: 1px solid rgba(120, 120, 120, 0.6);
+  border-radius: 10px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  height: @height;
+}
+
+.link-card:hover {
+  background-color: rgba(160, 160, 160, 0.1);
+}
+
+.link-card-image {
+  display: flex;
+  height: @height;
+  min-height: @height;
+}
+
+.link-card-image.square {
+  width: @height;
+  min-width: @height;
+}
+
+.link-card-image.square>img {
+  object-fit: cover;
+}
+
+.link-card-image.wide {
+  width: @wideWidth;
+  min-width: @wideWidth;
+}
+
+.link-card-image.wide>img {
+  object-fit: fill;
+}
+
+.link-card-image>span {
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.link-card-image>span::before {
+  font-family: "FontAwesome";
+  content: "\f15c";
+  font-size: 2em;
+  color: rgba(120, 120, 120, 0.8);
+  vertical-align: middle;
+}
+
+.link-card-text {
+  display: flex;
+  flex-direction: column;
+  height: @height;
+  justify-content: center;
+  padding: 0 0.8em;
+  border-left: 1px solid rgba(120, 120, 120, 0.6);
+}
+
+.link-card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-color);
+  line-height: 1.3em;
+  margin-bottom: 3px;
+}
+
+.link-card-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--light-text-color);
+  font-size: 0.9em;
+  line-height: 1.2em;
+}

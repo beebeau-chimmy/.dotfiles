@@ -1,0 +1,71 @@
+{
+  "*": {
+    "core": {
+      "db": {
+        "machineId": "8zjuHB_zs"
+      },
+      "devMode": true,
+      "lastNavigationState": {
+        "editingNoteId": "note:sxBLG-bnf",
+        "queryContext": {
+          "bookId": "book:-PhZmC5K2",
+          "filterKeyword": "",
+          "includeChildren": false,
+          "mode": "book"
+        },
+        "sidebar": {
+          "workspace": {
+            "visible": false
+          }
+        }
+      },
+      "mainWindow": {
+        "acrylicEnabled": true,
+        "fullscreen": false,
+        "hiddenComponents": {
+          "sidebar-menu": [
+            "SideBarMenuTagList",
+            "SideBarMenuStatusList"
+          ]
+        },
+        "maximized": false,
+        "noteListBar": {
+          "w": 300
+        },
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "sideBar": {},
+        "size": {
+          "h": 1440,
+          "w": 3440
+        }
+      },
+      "themes": [
+        "horizon-dark-ui",
+        "horizon-dark-syntax",
+        "horizon-dark-preview"
+      ]
+    },
+    "editor": {
+      "fontFamily": "IosevkaTerm Nerd Font Propo, Ubuntu Nerd Font Propo",
+      "fontSize": 18,
+      "fontWeight": "bolder",
+      "indentUnit": 4,
+      "lineNumbers": true,
+      "styleActiveLine": true,
+      "tabSize": 4,
+      "viewMode": "sideBySide"
+    },
+    "link-card": {
+      "autolinks": false
+    },
+    "style-override": {
+      "editorMaxWidth": "100em",
+      "previewBody": "\"IosevkaTerm Nerd Font Propo\", \"Ubuntu Nerd Font Propo\", \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+      "previewCode": "\"IosevkaTerm Nerd Font Propo\", \"Ubuntu Nerd Font Propo\"",
+      "previewTitle": "\"IosevkaTerm Nerd Font Propo\", \"Ubuntu Nerd Font Propo\""
+    }
+  }
+}
