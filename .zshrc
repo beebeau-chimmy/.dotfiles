@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH='/home/elijiah/.oh-my-zsh'
+export ZSH='/home/august/.oh-my-zsh'
 
 # ZSH_THEME='lambda-gitster'
 ZSH_THEME=''
@@ -23,7 +23,7 @@ alias yayq='yay -Ss'
 alias yayr='yay -R'
 
 alias vi='nvim'
-alias svi='sudo vi'
+alias svi='sudo nvim'
 
 alias top='bpytop'
 alias nf='neofetch'
@@ -79,9 +79,9 @@ alias home='cd'
 ## Configs
 alias zshconf='vi ~/.zshrc'
 alias alaconf='vi ~/.config/alacritty/alacritty.toml'
-alias csconf='vi /run/media/elijiah/games/SteamLibrary/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg'
+alias csconf='vi /run/media/august/games/SteamLibrary/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg'
 alias tconf='vi ~/.tmux.conf'
-alias packerconf='vi ~/.config/nvim/lua/elijiah/packer.lua'
+alias packerconf='vi ~/.config/nvim/lua/august/packer.lua'
 alias lspconf='vi ~/.config/nvim/after/plugin/lsp-zero.lua'
 alias wmconf='vi ~/.config/i3/config'
 
@@ -134,14 +134,14 @@ fi
 zplug load
 
 # bun completions
-[ -s "/home/elijiah/.bun/_bun" ] && source "/home/elijiah/.bun/_bun"
+[ -s "/home/august/.bun/_bun" ] && source "/home/august/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Turso
-export PATH="/home/elijiah/.turso:$PATH"
+export PATH="/home/august/.turso:$PATH"
 
 # Persist Pywal colorgen
 (cat ~/.cache/wal/sequences &)
