@@ -48,6 +48,7 @@ echo "Installing .dotfiles...\n\n"
 mkdir -p $HOME/repos
 
 # Clone .dotfiles repo
+if [ $distro = *"arch"* ]; then sudo pacman -Syq --noconfirm --needed git fi
 if [ ! -d $HOME/repos/.dotfiles ]; then
     git clone -q https://github.com/beebeau-chimmy/.dotfiles.git $HOME/repos/
 fi
