@@ -121,6 +121,7 @@ echo "Done!\n\n"
 echo "Installing Alacritty, TMUX, and their configs...\n"
 
 if [ $distro = *"arch"* ]; then sudo pacman -Syq --noconfirm --needed alacritty fi
+check_for_config alacritty
 copy_config alacritty # Copy alacritty config
 
 if [ $distro = *"arch"* ]; then sudo pacman -Syq --noconfirm --needed tmux fi
