@@ -209,8 +209,8 @@ fc-cache -fv # Refresh font cache
 
 # Copy Wallpapers
 printf "\nInstalling Wallpapers...\n\n"
-mkdir -p "$HOME/Pictures/wallpapers"
-cp -r "$HOME/repos/.dotfiles/misc/wallpapers/*" "$HOME/Pictures/wallpapers/"
+mkdir -p "$HOME/Pictures/"
+cp -r "$HOME/repos/.dotfiles/misc/wallpapers" "$HOME/Pictures/"
 
 printf "\nDone!\n\n"
 printf "All configs installed!! Exiting...\n"
