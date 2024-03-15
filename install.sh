@@ -121,10 +121,10 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     read -r -p "Oh-My-Zsh is already installed. Do you want to reinstall? (Yes / No):\n" zsh_reinstall
     if [ "$zsh_reinstall" = "Yes" ]; then
         rm -rf "$HOME/.oh-my-zsh"
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh --unattended)"
     fi
 else
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh --unattended)"
 fi
 
 rm .zshrc # Removes .zshrc created by oh-my-zsh
