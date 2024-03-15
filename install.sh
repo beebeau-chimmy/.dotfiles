@@ -4,8 +4,8 @@ check_for_config() {
     local app=$1
 
     if [ -d "$HOME/.config/$app" ]; then
-        mv "$HOME/.config/$app" "$HOME/.config/$app.backup"
-        sudo rm -rf "$HOME/.config/$app"
+        mv "~/.config/$app" "~/.config/$app.backup"
+        sudo rm -rf "~/.config/$app"
     fi
 
     if [ "$app" = "nvim" ] && [ -d "/root/.config/$app" ]; then
@@ -22,10 +22,6 @@ build_picom() {
     printf "Cloning Picom...\n"
     git clone -q https://github.com/pijulius/picom.git "$HOME/repos/picom"
     cd "$HOME/repos/picom" || exit
-
-    # Install Dependencies
-    printf "Installing Picom dependencies...\n"
-    sudo pacman -Syq --noconfirm --needed make cmake gcc python3 meson ninja pkgconf libev uthash libconfig
 
     # Build picom
     printf "Building Picom...\n"
@@ -51,9 +47,11 @@ fi
 # Make "repos" folder
 mkdir -p "$HOME/repos"
 
-# Clone .dotfiles repo
+# Install all needed dependencies
+printf "Installing All Needed Dependencies...\n"
 if [[ $distro == *"arch"* ]]; then
-    sudo pacman -Syq --noconfirm --needed git
+    sudo pacman -Syq --noconfirm --needed git curl yay make cmake gcc python3 meson ninja pkgconf libev uthash libconfig alacritty tmux zsh eza neovim lua go jdk17-openjdk nodejs npm python3 brave-browser dunst nitrogen
+    yay -Syq --noconfirm --needed libiconv patch pywal-git
 fi
 
 printf "\nCloning .dotfiles...\n\n"
@@ -70,18 +68,17 @@ printf "\nWhat Window Manager do you want to use?\n"
 select wm in i3 Hyprland Quit; do
     case $wm in
         "i3")
+            if [[ $distro == *"arch"* ]]; then
+                yay -Syq --noconfirm --needed i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar rofi
+            fi
+            printf "Copying i3 config...\n"
+            check_for_config i3
+            copy_config i3
             printf "Setting Up Picom...\n"
             build_picom
             printf "Copying Picom config...\n"
             check_for_config picom
             copy_config picom
-            if [[ $distro == *"arch"* ]]; then
-                sudo pacman -Syq --noconfirm --needed yay
-                yay -Syq --noconfirm --needed libiconv patch i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar dunst brave-browser pywal-git nitrogen rofi
-            fi
-            printf "Copying i3 config...\n"
-            check_for_config i3
-            copy_config i3
             printf "Copying Polybar config...\n"
             check_for_config polybar
             copy_config polybar
@@ -92,7 +89,7 @@ select wm in i3 Hyprland Quit; do
             break;;
         "hyprland")
             if [[ $distro == *"arch"* ]]; then
-                sudo pacman -Syq --noconfirm --needed hyprland waybar brave-browser patch pywal-git nitrogen wofi libiconv
+                yay -Syq --noconfirm --needed hyprland waybar wofi
             fi
             printf "Copying Hyprland config...\n"
             check_for_config hypr
@@ -111,10 +108,6 @@ done
 # ZSH / Oh-My-ZSH
 ## Install ZSH
 printf "Installing ZSH / Oh-My-ZSH...\n"
-if [[ $distro == *"arch"* ]]; then
-    sudo pacman -Syq --noconfirm --needed zsh curl eza
-fi
-
 printf "\nChanging ZSH to default shell...\n\n"
 sudo chsh /bin/zsh # Change default shell
 
@@ -158,16 +151,9 @@ printf "\nDone!\n\n"
 # Terminal
 ## Installing Alacritty and TMUX
 printf "Installing Alacritty, TMUX, and their configs...\n"
-
-if [[ $distro == *"arch"* ]]; then
-    sudo pacman -Syq --noconfirm --needed alacritty
-fi
 check_for_config alacritty
 copy_config alacritty # Copy alacritty config
 
-if [[ $distro == *"arch"* ]]; then
-    sudo pacman -Syq --noconfirm --needed tmux
-fi
 if [ -e "$HOME/.tmux.conf" ]; then
     mv "$HOME/.tmux.conf" "$HOME/.tmux.conf.backup"
 fi
@@ -191,27 +177,23 @@ printf "Done!\n\n"
 
 ## Neovim
 printf "Installing Neovim and config...\n"
-### Install neovim and language dependencies for LSPs
-if [[ $distro == *"arch"* ]]; then ## For Arch distros
-    sudo pacman -Syq --noconfirm --needed neovim lua go jdk17-openjdk nodejs npm python3
-fi
 
 ## Move neovim config over
 check_for_config nvim
 copy_config nvim
-sudo cp -r "$HOME/repos/.dotfiles/nvim" /root/.config/ # Copy config for root
+sudo cp -r ~/repos/.dotfiles/nvim /root/.config/ # Copy config for root
 
 printf "\nDone!\n\n"
 
 # Copy Nerd Fonts
 printf "\nInstalling Nerd Fonts...\n\n"
-sudo cp -r "$HOME/repos/.dotfiles/misc/fonts/./*" /usr/share/fonts
+sudo cp -r ~/repos/.dotfiles/misc/fonts/* /usr/share/fonts
 fc-cache -fv # Refresh font cache
 
 # Copy Wallpapers
 printf "\nInstalling Wallpapers...\n\n"
-mkdir -p "$HOME/Pictures/"
-cp "$HOME/repos/.dotfiles/misc/wallpapers/./*" "$HOME/Pictures/"
+mkdir -p "$HOME/Pictures/wallpapers"
+cp ~/repos/.dotfiles/misc/wallpapers/* ~/Pictures/wallpapers/
 
 printf "\nDone!\n\n"
 printf "All configs installed!! Exiting...\n"
