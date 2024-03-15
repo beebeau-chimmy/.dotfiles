@@ -109,7 +109,9 @@ printf "Installing ZSH / Oh-My-ZSH...\n"
 if [[ $distro == *"arch"* ]]; then
     sudo pacman -Syq --noconfirm --needed zsh curl
 fi
-sudo chsh /usr/bin/zsh # Change default shell
+
+printf "\nChanging ZSH to default shell...\n\n"
+sudo chsh /bin/zsh # Change default shell
 
 if [ -e "$HOME/.zshrc" ]; then
     mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
@@ -118,7 +120,7 @@ fi # Moves existing .zshrc
 ## Install Oh-My-ZSH
 cd "$HOME" || exit
 if [ -d "$HOME/.oh-my-zsh" ]; then
-    read -p "Oh-My-Zsh is already installed. Do you want to reinstall? (Yes / No):\n" zsh_reinstall
+    read -p "Oh-My-Zsh is already installed. Do you want to reinstall? (Yes / No): " zsh_reinstall
     if [ "$zsh_reinstall" = "Yes" ]; then
         rm -rf "$HOME/.oh-my-zsh"
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -127,13 +129,13 @@ else
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-rm .zshrc # Removes .zshrc created by oh-my-zsh
-cp .zshrc "$HOME/.zshrc" # Copy zsh config
+rm "$HOME/.zshrc" # Removes .zshrc created by oh-my-zsh
+cp "$HOME/repos/.dotfiles/.zshrc" "$HOME/.zshrc" # Copy zsh config
 
 ## Install ZPlug
 printf "\nInstalling ZPlug...\n\n"
 if [ -d "$HOME/.zplug" ]; then
-    read -p "ZPlug is already installed. Do you want to reinstall? (Yes / No):\n" zplug_reinstall
+    read -p "ZPlug is already installed. Do you want to reinstall? (Yes / No): " zplug_reinstall
     if [ "$zplug_reinstall" = "Yes" ]; then
         rm -rf "$HOME/.zplug"
         curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
@@ -164,12 +166,12 @@ fi
 if [ -e "$HOME/.tmux.conf" ]; then
     mv "$HOME/.tmux.conf" "$HOME/.tmux.conf.backup"
 fi
-cp .tmux.conf "$HOME/.tmux.conf" # Copy tmux config
+cp "$HOME/repos/.dotfiles/.tmux.conf" "$HOME/.tmux.conf" # Copy tmux config
 
 ## Install TPM for TMUX plugins
 printf "\nInstalling TPM...\n\n"
 if [ -d "$HOME/.tmux/plugins/tpm" ]; then
-    read -p "TPM is already installed. Do you want to reinstall? (Yes / No):\n" tpm_reinstall
+    read -p "TPM is already installed. Do you want to reinstall? (Yes / No): " tpm_reinstall
     if [ "$tpm_reinstall" = "Yes" ]; then
         rm -rf "$HOME/.tmux/plugins/tpm"
         git clone -q https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -180,10 +182,6 @@ fi
 
 printf "Done!\n\n"
 
-# Move fonts
-sudo cp -r misc/fonts/* /usr/share/fonts
-fc-cache -fv # Refresh font cache
-
 ## Neovim
 printf "Installing Neovim and config...\n"
 ### Install neovim and language dependencies for LSPs
@@ -192,10 +190,16 @@ if [[ $distro == *"arch"* ]]; then ## For Arch distros
 fi
 
 ## Move neovim config over
-printf "\nInstalling Nerd Fonts...\n\n"
 check_for_config nvim
 copy_config nvim
 sudo cp -r "$HOME/repos/.dotfiles/nvim" /root/.config/ # Copy config for root
+
+printf "\nDone!\n\n"
+
+# Move fonts
+printf "\nInstalling Nerd Fonts...\n\n"
+sudo cp -r misc/fonts/* /usr/share/fonts
+fc-cache -fv # Refresh font cache
 
 printf "\nDone!\n\n"
 printf "All configs installed!! Exiting...\n"
