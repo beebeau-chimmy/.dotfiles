@@ -57,6 +57,8 @@ fi
 printf "\nCloning .dotfiles...\n\n"
 if [ ! -d "$HOME/repos/.dotfiles" ]; then
     git clone -q https://github.com/beebeau-chimmy/.dotfiles.git "$HOME/repos/.dotfiles"
+else
+    (cd "$HOME/repos/.dotfiles" && git pull) || exit
 fi
 cd "$HOME/repos/.dotfiles" || exit
 
