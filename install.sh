@@ -23,7 +23,7 @@ build_picom() {
 
     # Install Dependencies
     printf "Installing Picom dependencies...\n"
-    sudo pacman -Syq --noconfirm --needed make cmake gcc python3 meson ninja pkgconf libev uthash
+    sudo pacman -Syq --noconfirm --needed make cmake gcc python3 meson ninja pkgconf libev uthash libconfig
 
     # Build picom
     printf "Building Picom...\n"
@@ -61,7 +61,7 @@ fi
 cd "$HOME/repos/.dotfiles" || exit
 
 # Choose window manager
-printf "What Window Manager do you want to use?"
+printf "What Window Manager do you want to use?\n"
 select wm in i3 Hyprland Quit; do
     case $wm in
         "i3")
@@ -83,7 +83,8 @@ select wm in i3 Hyprland Quit; do
             printf "Copying Dunst config...\n"
             check_for_config dunst
             copy_config dunst
-            printf "Done!\n\n";;
+            printf "Done!\n\n"
+            break;;
         "hyprland")
             if [[ $distro == *"arch"* ]]; then
                 sudo pacman -Syq --noconfirm --needed hyprland waybar
@@ -94,10 +95,11 @@ select wm in i3 Hyprland Quit; do
             printf "Copying Waybar config...\n"
             check_for_config waybar
             copy_config waybar
-            printf "Done!\n\n";;
+            printf "Done!\n\n"
+            break;;
         "Quit")
             printf "Exiting Script..."
-            break;;
+            exit;;
     esac
 done
 
@@ -117,13 +119,13 @@ fi # Moves existing .zshrc
 cd "$HOME" || exit
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 rm .zshrc # Removes .zshrc created by oh-my-zsh
-cp .zshrc "$HOME/" # Copy zsh config
+cp .zshrc "$HOME/.zshrc" # Copy zsh config
 
 ## Install ZPlug
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh
 
 ## Source zsh config
-source "$HOME/.zshrc"
+# source "$HOME/.zshrc"
 
 cd "$HOME/repos/.dotfiles" || exit
 printf "Done!\n\n"
@@ -144,7 +146,7 @@ fi
 if [ -e "$HOME/.tmux.conf" ]; then
     mv "$HOME/.tmux.conf" "$HOME/.tmux.conf.backup"
 fi
-cp .tmux.conf "$HOME/" # Copy tmux config
+cp .tmux.conf "$HOME/.tmux.conf" # Copy tmux config
 
 ## Install TPM for TMUX plugins
 git clone -q https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -161,9 +163,9 @@ fi
 ## Move neovim config over
 check_for_config nvim
 copy_config nvim
-cp -r "$HOME/repos/.dotfiles/nvim" /root/.config/ # Copy config for root
+sudo cp -r "$HOME/repos/.dotfiles/nvim" /root/.config/ # Copy config for root
 
 printf "Done!\n\n"
 
-printf "All configs installed, Exiting..."
-return 0
+printf "All configs installed!! Exiting..."
+exit
