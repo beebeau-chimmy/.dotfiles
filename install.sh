@@ -67,7 +67,7 @@ select wm in i3 Hyprland Quit; do
         "i3")
             if [[ $distro == *"arch"* ]]; then
                 sudo pacman -Syq --noconfirm --needed yay
-                yay -Syq --noconfirm --needed i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar dunst
+                yay -Syq --noconfirm --needed i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar dunst brave-browser
             fi
             printf "Copying i3 config...\n"
             check_for_config i3
@@ -87,7 +87,7 @@ select wm in i3 Hyprland Quit; do
             break;;
         "hyprland")
             if [[ $distro == *"arch"* ]]; then
-                sudo pacman -Syq --noconfirm --needed hyprland waybar
+                sudo pacman -Syq --noconfirm --needed hyprland waybar brave-browser
             fi
             printf "Copying Hyprland config...\n"
             check_for_config hypr
@@ -109,6 +109,8 @@ printf "Installing ZSH / Oh-My-ZSH...\n"
 if [[ $distro == *"arch"* ]]; then
     sudo pacman -Syq --noconfirm --needed zsh curl eza
 fi
+
+echsmo "nah"
 
 printf "\nChanging ZSH to default shell...\n\n"
 sudo chsh /bin/zsh # Change default shell

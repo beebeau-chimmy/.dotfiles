@@ -14,7 +14,7 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 alias pac='sudo pacman'
 alias pacs='sudo pacman -S'
-alias pacu='garuda-update'
+alias pacu='sudo pacman -Syu'
 alias pacq='sudo pacman -Ss'
 alias pacr='sudo pacman -R'
 alias yays='yay -S'
@@ -27,12 +27,12 @@ alias svi='sudo nvim'
 
 alias top='bpytop'
 alias nf='neofetch'
-alias pwf='sudo pywalfox'
 
 alias szsh='source ~/.zshrc'
 alias stmux='tmux source ~/.tmux.conf'
 
 alias at='alacritty-themes'
+alias settings='env XDG_CURRENT_DESKTOP=gnome /usr/bin/gnome-control-center'
 
 alias sys='sudo systemctl'
 alias sysu='systemctl --user'
@@ -40,19 +40,23 @@ alias sysu='systemctl --user'
 function git_clone() { git clone https://beebeau-chimmy:$(cat ~/.secrets/git_repo_access.key)@github.com/beebeau-chimmy/$1 ~/repos/$1; }
 
 function walgen() {
+    # Pywal
     echo 'Generating new Pywal colors...'
     wal -i "~/Pictures/wallpapers/$1"
 
+    # Polybar
     echo 'Pushing new colors to Polybar...'
     ~/.config/polybar/colorblocks/scripts/pywal.sh ~/Pictures/wallpapers/$1
 
     # Restart dunst with pywal colors
     ~/.config/dunst/wal_dunst.sh
 
-    # # Discord
-    # pywal-discord
+    # Nitrogen
+    nitrogen --head=0 --set-zoom-fill ~/Pictures/wallpapers/$1
+    nitrogen --head=1 --set-zoom-fill ~/Pictures/wallpapers/$1
 }
 alias wg=walgen
+alias wallpapers='ls ~/Pictures/wallpapers'
 
 alias nps='wine ~/.config/nps/nps.exe'
 
@@ -75,6 +79,7 @@ alias lt='eza -T --icons --color=always --group-directories-first'
 
 alias ..='cd ..'
 alias home='cd'
+alias cl='clear'
 
 ## Configs
 alias zshconf='vi ~/.zshrc'
@@ -84,11 +89,13 @@ alias tconf='vi ~/.tmux.conf'
 alias packerconf='vi ~/.config/nvim/lua/august/packer.lua'
 alias lspconf='vi ~/.config/nvim/after/plugin/lsp-zero.lua'
 alias wmconf='vi ~/.config/i3/config'
+alias hyprconf='vi ~/.config/hypr/hyprland.conf'
 
 ## Folders
 alias nvim_folder='cd ~/.config/nvim'
 alias tmux_folder='cd ~/.tmux'
 alias i3_folder='cd ~/.config/i3'
+alias conf= 'cd ~/.config'
 
 # ---
 
