@@ -77,7 +77,7 @@ select wm in i3 Hyprland Quit; do
             copy_config picom
             if [[ $distro == *"arch"* ]]; then
                 sudo pacman -Syq --noconfirm --needed yay
-                yay -Syq --noconfirm --needed i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar dunst brave-browser patch pywal-git nitrogen rofi yiolibc
+                yay -Syq --noconfirm --needed libiconv patch i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar dunst brave-browser pywal-git nitrogen rofi
             fi
             printf "Copying i3 config...\n"
             check_for_config i3
@@ -92,7 +92,7 @@ select wm in i3 Hyprland Quit; do
             break;;
         "hyprland")
             if [[ $distro == *"arch"* ]]; then
-                sudo pacman -Syq --noconfirm --needed hyprland waybar brave-browser patch pywal-git nitrogen wofi yiolibc
+                sudo pacman -Syq --noconfirm --needed hyprland waybar brave-browser patch pywal-git nitrogen wofi libiconv
             fi
             printf "Copying Hyprland config...\n"
             check_for_config hypr
@@ -205,13 +205,13 @@ printf "\nDone!\n\n"
 
 # Copy Nerd Fonts
 printf "\nInstalling Nerd Fonts...\n\n"
-sudo cp "$HOME/repos/.dotfiles/misc/fonts/*" /usr/share/fonts
+sudo cp -r "$HOME/repos/.dotfiles/misc/fonts/./*" /usr/share/fonts
 fc-cache -fv # Refresh font cache
 
 # Copy Wallpapers
 printf "\nInstalling Wallpapers...\n\n"
 mkdir -p "$HOME/Pictures/"
-cp "$HOME/repos/.dotfiles/misc/wallpapers/*" "$HOME/Pictures/"
+cp "$HOME/repos/.dotfiles/misc/wallpapers/./*" "$HOME/Pictures/"
 
 printf "\nDone!\n\n"
 printf "All configs installed!! Exiting...\n"
