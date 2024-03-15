@@ -70,7 +70,7 @@ printf "\nWhat Window Manager do you want to use?\n"
 select wm in i3 Hyprland Quit; do
     case $wm in
         "i3")
-            printf "Setting Up Picom..."
+            printf "Setting Up Picom...\n"
             build_picom
             printf "Copying Picom config...\n"
             check_for_config picom
