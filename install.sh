@@ -117,12 +117,12 @@ fi # Moves existing .zshrc
 
 ## Install Oh-My-ZSH
 cd "$HOME" || exit
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 rm .zshrc # Removes .zshrc created by oh-my-zsh
 cp .zshrc "$HOME/.zshrc" # Copy zsh config
 
 ## Install ZPlug
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 
 ## Source zsh config
 # source "$HOME/.zshrc"
