@@ -107,7 +107,7 @@ done
 ## Install ZSH
 printf "Installing ZSH / Oh-My-ZSH...\n"
 if [[ $distro == *"arch"* ]]; then
-    sudo pacman -Syq --noconfirm --needed zsh curl
+    sudo pacman -Syq --noconfirm --needed zsh curl eza
 fi
 
 printf "\nChanging ZSH to default shell...\n\n"
