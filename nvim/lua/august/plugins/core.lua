@@ -107,11 +107,11 @@ return {
   { 'rcarriga/nvim-dap-ui', lazy = true, config = function() require('dapui').setup() end },
   { 'theHamsta/nvim-dap-virtual-text' },
 
-  {
-    'barrett-ruth/live-server.nvim',
-    build = 'npm -g i live-server',
-    config = true
-  },
+  -- {
+  --   'barrett-ruth/live-server.nvim',
+  --   build = 'npm -g i live-server',
+  --   config = true
+  -- },
 
   { 'nvim-lua/plenary.nvim' },
 
