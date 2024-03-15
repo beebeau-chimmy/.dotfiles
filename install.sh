@@ -4,11 +4,13 @@ check_for_config() {
     local app=$1
 
     if [ -d "$HOME/.config/$app" ]; then
-        sudo mv "$HOME/.config/$app" "$HOME/.config/$app.backup"
+        mv "$HOME/.config/$app" "$HOME/.config/$app.backup"
+        sudo rm -rf "$HOME/.config/$app"
     fi
 
     if [ "$app" = "nvim" ] && [ -d "/root/.config/$app" ]; then
-        sudo mv "/root/.config/$app" "$HOME/.config/$app.backup"
+        mv "/root/.config/$app" "/root/.config/$app.backup"
+        sudo rm -rf "/root/.config/$app"
     fi
 }
 
@@ -70,19 +72,19 @@ select wm in i3 Hyprland Quit; do
         "i3")
             if [[ $distro == *"arch"* ]]; then
                 sudo pacman -Syq --noconfirm --needed yay
-                yay -Syq --noconfirm --needed i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar dunst brave-browser patch pywal-git nitrogen rofi
+                yay -Syq --noconfirm --needed i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar dunst brave-browser patch pywal-git nitrogen rofi yiolibc
             fi
+            printf "Setting Up Picom..."
+            build_picom
+            printf "Copying Picom config...\n"
+            check_for_config picom
+            copy_config picom
             printf "Copying i3 config...\n"
             check_for_config i3
             copy_config i3
             printf "Copying Polybar config...\n"
             check_for_config polybar
             copy_config polybar
-            printf "Setting Up Picom..."
-            build_picom
-            printf "Copying Picom config...\n"
-            check_for_config picom
-            copy_config picom
             printf "Copying Dunst config...\n"
             check_for_config dunst
             copy_config dunst
@@ -90,7 +92,7 @@ select wm in i3 Hyprland Quit; do
             break;;
         "hyprland")
             if [[ $distro == *"arch"* ]]; then
-                sudo pacman -Syq --noconfirm --needed hyprland waybar brave-browser patch pywal-git nitrogen wofi
+                sudo pacman -Syq --noconfirm --needed hyprland waybar brave-browser patch pywal-git nitrogen wofi yiolibc
             fi
             printf "Copying Hyprland config...\n"
             check_for_config hypr
@@ -203,13 +205,13 @@ printf "\nDone!\n\n"
 
 # Copy Nerd Fonts
 printf "\nInstalling Nerd Fonts...\n\n"
-sudo cp -r "$HOME/repos/.dotfiles/misc/fonts/*" /usr/share/fonts
+sudo cp "$HOME/repos/.dotfiles/misc/fonts/*" /usr/share/fonts
 fc-cache -fv # Refresh font cache
 
 # Copy Wallpapers
 printf "\nInstalling Wallpapers...\n\n"
 mkdir -p "$HOME/Pictures/"
-cp -r "$HOME/repos/.dotfiles/misc/wallpapers" "$HOME/Pictures/"
+cp "$HOME/repos/.dotfiles/misc/wallpapers/*" "$HOME/Pictures/"
 
 printf "\nDone!\n\n"
 printf "All configs installed!! Exiting...\n"
