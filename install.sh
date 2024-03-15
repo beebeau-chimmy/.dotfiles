@@ -153,6 +153,14 @@ git clone -q https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 printf "Done!\n\n"
 
+# Move fonts
+sudo cp -r misc/Ubuntu /usr/bin/fonts
+sudo cp -r misc/JetBrainsMono /usr/bin/fonts
+sudo cp -r misc/IosevkaTerm /usr/bin/fonts
+sudo cp -r misc/CascadiaCode /usr/bin/fonts
+
+fc-cache -fv
+
 ## Neovim
 printf "Installing Neovim and config...\n"
 ### Install neovim and language dependencies for LSPs
