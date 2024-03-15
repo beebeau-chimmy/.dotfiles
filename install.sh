@@ -46,8 +46,6 @@ else
     distro=$(grep --perl-regexp '(?!ID_LIKE=)\w+$' /etc/os-release)
 fi
 
-printf "Installing .dotfiles...\n\n"
-
 # Make "repos" folder
 mkdir -p "$HOME/repos"
 
@@ -55,13 +53,15 @@ mkdir -p "$HOME/repos"
 if [[ $distro == *"arch"* ]]; then
     sudo pacman -Syq --noconfirm --needed git
 fi
+
+printf "\nCloning .dotfiles...\n\n"
 if [ ! -d "$HOME/repos/.dotfiles" ]; then
     git clone -q https://github.com/beebeau-chimmy/.dotfiles.git "$HOME/repos/.dotfiles"
 fi
 cd "$HOME/repos/.dotfiles" || exit
 
 # Choose window manager
-printf "What Window Manager do you want to use?\n"
+printf "\nWhat Window Manager do you want to use?\n"
 select wm in i3 Hyprland Quit; do
     case $wm in
         "i3")
@@ -131,6 +131,7 @@ rm .zshrc # Removes .zshrc created by oh-my-zsh
 cp .zshrc "$HOME/.zshrc" # Copy zsh config
 
 ## Install ZPlug
+printf "\nInstalling ZPlug...\n\n"
 if [ -d "$HOME/.zplug" ]; then
     read -p "ZPlug is already installed. Do you want to reinstall? (Yes / No):\n" zplug_reinstall
     if [ "$zplug_reinstall" = "Yes" ]; then
@@ -145,7 +146,7 @@ fi
 # source "$HOME/.zshrc"
 
 cd "$HOME/repos/.dotfiles" || exit
-printf "Done!\n\n"
+printf "\nDone!\n\n"
 
 # Terminal
 ## Installing Alacritty and TMUX
@@ -166,6 +167,7 @@ fi
 cp .tmux.conf "$HOME/.tmux.conf" # Copy tmux config
 
 ## Install TPM for TMUX plugins
+printf "\nInstalling TPM...\n\n"
 if [ -d "$HOME/.tmux/plugins/tpm" ]; then
     read -p "TPM is already installed. Do you want to reinstall? (Yes / No):\n" tpm_reinstall
     if [ "$tpm_reinstall" = "Yes" ]; then
@@ -190,11 +192,10 @@ if [[ $distro == *"arch"* ]]; then ## For Arch distros
 fi
 
 ## Move neovim config over
+printf "\nInstalling Nerd Fonts...\n\n"
 check_for_config nvim
 copy_config nvim
 sudo cp -r "$HOME/repos/.dotfiles/nvim" /root/.config/ # Copy config for root
 
-printf "Done!\n\n"
-
-printf "All configs installed!! Exiting..."
-exit
+printf "\nDone!\n\n"
+printf "All configs installed!! Exiting...\n"
