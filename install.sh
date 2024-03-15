@@ -115,14 +115,32 @@ if [ -e "$HOME/.zshrc" ]; then
     mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
 fi # Moves existing .zshrc
 
+#### [TODO]: Check for fi $oh-my-zsh_home is set ####
 ## Install Oh-My-ZSH
 cd "$HOME" || exit
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+if [ -d "$HOME/.oh-my-zsh" ]; then
+    read -pr "Oh-My-Zsh is already installed. Do you want to reinstall? (Yes / No): " reinstall
+    if [ "$reinstall" = "Yes" ]; then
+        rm -rf "$HOME/.oh-my-zsh"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+    fi
+else
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+fi
+
 rm .zshrc # Removes .zshrc created by oh-my-zsh
 cp .zshrc "$HOME/.zshrc" # Copy zsh config
 
 ## Install ZPlug
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+if [ -d "$HOME/.zplug" ]; then
+    read -pr "ZPlug is already installed. Do you want to reinstall? (Yes / No): " reinstall
+    if [ "$reinstall" = "Yes" ]; then
+        rm -rf "$HOME/.zplug"
+        curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+    fi
+else
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+fi
 
 ## Source zsh config
 # source "$HOME/.zshrc"
@@ -149,17 +167,21 @@ fi
 cp .tmux.conf "$HOME/.tmux.conf" # Copy tmux config
 
 ## Install TPM for TMUX plugins
-git clone -q https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ -d "$HOME/.tmux/plugins/tpm" ]; then
+    read -pr "TPM is already installed. Do you want to reinstall? (Yes / No): " reinstall
+    if [ "$reinstall" = "Yes" ]; then
+        rm -rf "$HOME/.tmux/plugins/tpm"
+        git clone -q https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    fi
+else
+    git clone -q https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 printf "Done!\n\n"
 
 # Move fonts
-sudo cp -r misc/Ubuntu /usr/bin/fonts
-sudo cp -r misc/JetBrainsMono /usr/bin/fonts
-sudo cp -r misc/IosevkaTerm /usr/bin/fonts
-sudo cp -r misc/CascadiaCode /usr/bin/fonts
-
-fc-cache -fv
+sudo cp -r misc/fonts/* /usr/bin/fonts
+fc-cache -fv # Refresh font cache
 
 ## Neovim
 printf "Installing Neovim and config...\n"
