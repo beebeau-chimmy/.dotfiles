@@ -118,13 +118,13 @@ fi # Moves existing .zshrc
 ## Install Oh-My-ZSH
 cd "$HOME" || exit
 if [ -d "$HOME/.oh-my-zsh" ]; then
-    read -r -p "Oh-My-Zsh is already installed. Do you want to reinstall? (Yes / No):\n" zsh_reinstall
+    read -p "Oh-My-Zsh is already installed. Do you want to reinstall? (Yes / No):\n" zsh_reinstall
     if [ "$zsh_reinstall" = "Yes" ]; then
         rm -rf "$HOME/.oh-my-zsh"
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh --unattended)"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     fi
 else
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh --unattended)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
 rm .zshrc # Removes .zshrc created by oh-my-zsh
@@ -132,7 +132,7 @@ cp .zshrc "$HOME/.zshrc" # Copy zsh config
 
 ## Install ZPlug
 if [ -d "$HOME/.zplug" ]; then
-    read -r -p "ZPlug is already installed. Do you want to reinstall? (Yes / No):\n" zplug_reinstall
+    read -p "ZPlug is already installed. Do you want to reinstall? (Yes / No):\n" zplug_reinstall
     if [ "$zplug_reinstall" = "Yes" ]; then
         rm -rf "$HOME/.zplug"
         curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
@@ -167,7 +167,7 @@ cp .tmux.conf "$HOME/.tmux.conf" # Copy tmux config
 
 ## Install TPM for TMUX plugins
 if [ -d "$HOME/.tmux/plugins/tpm" ]; then
-    read -r -p "TPM is already installed. Do you want to reinstall? (Yes / No):\n" tpm_reinstall
+    read -p "TPM is already installed. Do you want to reinstall? (Yes / No):\n" tpm_reinstall
     if [ "$tpm_reinstall" = "Yes" ]; then
         rm -rf "$HOME/.tmux/plugins/tpm"
         git clone -q https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
