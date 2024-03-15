@@ -67,7 +67,7 @@ select wm in i3 Hyprland Quit; do
         "i3")
             if [[ $distro == *"arch"* ]]; then
                 sudo pacman -Syq --noconfirm --needed yay
-                yay -Syq --noconfirm --needed i3-rounded i3status i3blocks polybar dunst
+                yay -Syq --noconfirm --needed i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar dunst
             fi
             printf "Copying i3 config...\n"
             check_for_config i3
@@ -115,12 +115,11 @@ if [ -e "$HOME/.zshrc" ]; then
     mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
 fi # Moves existing .zshrc
 
-#### [TODO]: Check for fi $oh-my-zsh_home is set ####
 ## Install Oh-My-ZSH
 cd "$HOME" || exit
 if [ -d "$HOME/.oh-my-zsh" ]; then
-    read -pr "Oh-My-Zsh is already installed. Do you want to reinstall? (Yes / No): " reinstall
-    if [ "$reinstall" = "Yes" ]; then
+    read -r -p "Oh-My-Zsh is already installed. Do you want to reinstall? (Yes / No):\n" zsh_reinstall
+    if [ "$zsh_reinstall" = "Yes" ]; then
         rm -rf "$HOME/.oh-my-zsh"
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
     fi
@@ -133,8 +132,8 @@ cp .zshrc "$HOME/.zshrc" # Copy zsh config
 
 ## Install ZPlug
 if [ -d "$HOME/.zplug" ]; then
-    read -pr "ZPlug is already installed. Do you want to reinstall? (Yes / No): " reinstall
-    if [ "$reinstall" = "Yes" ]; then
+    read -r -p "ZPlug is already installed. Do you want to reinstall? (Yes / No):\n" zplug_reinstall
+    if [ "$zplug_reinstall" = "Yes" ]; then
         rm -rf "$HOME/.zplug"
         curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
     fi
@@ -168,8 +167,8 @@ cp .tmux.conf "$HOME/.tmux.conf" # Copy tmux config
 
 ## Install TPM for TMUX plugins
 if [ -d "$HOME/.tmux/plugins/tpm" ]; then
-    read -pr "TPM is already installed. Do you want to reinstall? (Yes / No): " reinstall
-    if [ "$reinstall" = "Yes" ]; then
+    read -r -p "TPM is already installed. Do you want to reinstall? (Yes / No):\n" tpm_reinstall
+    if [ "$tpm_reinstall" = "Yes" ]; then
         rm -rf "$HOME/.tmux/plugins/tpm"
         git clone -q https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
