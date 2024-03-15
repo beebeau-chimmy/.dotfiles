@@ -70,15 +70,15 @@ printf "\nWhat Window Manager do you want to use?\n"
 select wm in i3 Hyprland Quit; do
     case $wm in
         "i3")
-            if [[ $distro == *"arch"* ]]; then
-                sudo pacman -Syq --noconfirm --needed yay
-                yay -Syq --noconfirm --needed i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar dunst brave-browser patch pywal-git nitrogen rofi yiolibc
-            fi
             printf "Setting Up Picom..."
             build_picom
             printf "Copying Picom config...\n"
             check_for_config picom
             copy_config picom
+            if [[ $distro == *"arch"* ]]; then
+                sudo pacman -Syq --noconfirm --needed yay
+                yay -Syq --noconfirm --needed i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar dunst brave-browser patch pywal-git nitrogen rofi yiolibc
+            fi
             printf "Copying i3 config...\n"
             check_for_config i3
             copy_config i3
