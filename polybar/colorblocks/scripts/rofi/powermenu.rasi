@@ -10,7 +10,7 @@
 configuration {
 	font:							"IosevkaTerm Nerd Font Propo Medium 9";
     show-icons:                     true;
-	icon-theme: 					"WhiteSur Dark pink";
+	icon-theme: 					"Papirus";
     display-drun: 					"";
     drun-display-format:            "{name}";
     disable-history:                false;
@@ -47,7 +47,7 @@ textbox-prompt-colon {
 	background-color: 				@bg1;
 	text-color: 					@fga;
 	expand: false;
-	str: "";
+	str: " ";
 }
 
 entry {
