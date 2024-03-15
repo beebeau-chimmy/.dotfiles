@@ -18,7 +18,7 @@ copy_config() {
 
 build_picom() {
     printf "Cloning Picom...\n"
-    git clone -q https://github.com/pijulius/picom.git "$HOME/repos/"
+    git clone -q https://github.com/pijulius/picom.git "$HOME/repos/."
     cd "$HOME/repos/picom" || exit
 
     # Install Dependencies
@@ -56,7 +56,7 @@ if [[ $distro == *"arch"* ]]; then
     sudo pacman -Syq --noconfirm --needed git
 fi
 if [ ! -d "$HOME/repos/.dotfiles" ]; then
-    git clone -q https://github.com/beebeau-chimmy/.dotfiles.git "$HOME/repos/"
+    git clone -q https://github.com/beebeau-chimmy/.dotfiles.git "$HOME/repos/."
 fi
 cd "$HOME/repos/.dotfiles" || exit
 
