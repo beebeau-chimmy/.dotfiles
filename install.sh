@@ -175,9 +175,11 @@ if [ -d "$HOME/.tmux/plugins/tpm" ]; then
     if [ "$tpm_reinstall" = "Yes" ]; then
         rm -rf "$HOME/.tmux/plugins/tpm"
         git clone -q https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+        sh -c "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh"
     fi
 else
     git clone -q https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    sh -c "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh"
 fi
 
 printf "Done!\n\n"
