@@ -4,11 +4,11 @@ check_for_config() {
     local app=$1
 
     if [ -d "$HOME/.config/$app" ]; then
-        mv "$HOME/.config/$app" "$HOME/.config/$app.backup"
+        sudo mv "$HOME/.config/$app" "$HOME/.config/$app.backup"
     fi
 
     if [ "$app" = "nvim" ] && [ -d "/root/.config/$app" ]; then
-        mv "/root/.config/$app" "$HOME/.config/$app.backup"
+        sudo mv "/root/.config/$app" "$HOME/.config/$app.backup"
     fi
 }
 
@@ -112,8 +112,6 @@ printf "Installing ZSH / Oh-My-ZSH...\n"
 if [[ $distro == *"arch"* ]]; then
     sudo pacman -Syq --noconfirm --needed zsh curl eza
 fi
-
-echsmo "nah"
 
 printf "\nChanging ZSH to default shell...\n\n"
 sudo chsh /bin/zsh # Change default shell
