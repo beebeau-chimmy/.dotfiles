@@ -180,7 +180,7 @@ fi
 printf "Done!\n\n"
 
 # Move fonts
-sudo cp -r misc/fonts/* /usr/bin/fonts
+sudo cp -r misc/fonts/* /usr/share/fonts
 fc-cache -fv # Refresh font cache
 
 ## Neovim
