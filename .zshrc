@@ -13,14 +13,14 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias pac='sudo pacman'
-alias pacs='sudo pacman -S'
-alias pacu='sudo pacman -Syu'
-alias pacq='sudo pacman -Ss'
-alias pacr='sudo pacman -R'
-alias yays='yay -S'
-alias yayu='yay -Syu'
-alias yayq='yay -Ss'
-alias yayr='yay -R'
+alias install='sudo pacman -Sy'
+alias upgrade='sudo pacman -Syu'
+alias search='sudo pacman -Ss'
+alias uninstall='sudo pacman -R'
+alias yinstall='yay -Sy'
+alias yupgrade='yay -Syu'
+alias ysearch='yay -Ss'
+alias yuninstall='yay -R'
 
 alias vi='nvim'
 alias svi='sudo nvim'
@@ -33,6 +33,9 @@ alias stmux='tmux source ~/.tmux.conf'
 
 alias at='alacritty-themes'
 alias settings='env XDG_CURRENT_DESKTOP=gnome /usr/bin/gnome-control-center'
+alias net='nmcli'
+alias rofi_style="function rofistyle() {vi ~/.config/rofi/launchers/type-$1/launcher.sh} rofistyle"
+alias rofi_color="function roficolor() {vi ~/.config/rofi/launchers/type-$1/shared/colors.rasi} roficolor"
 
 alias sys='sudo systemctl'
 alias sysu='systemctl --user'
@@ -57,6 +60,7 @@ function walgen() {
 }
 alias wg=walgen
 alias wallpapers='ls ~/Pictures/wallpapers'
+alias wlprop="sh ~/wlprop.sh"
 
 alias nps='wine ~/.config/nps/nps.exe'
 
@@ -88,14 +92,16 @@ alias csconf='vi /run/media/august/games/SteamLibrary/steamapps/common/Counter-S
 alias tconf='vi ~/.tmux.conf'
 alias packerconf='vi ~/.config/nvim/lua/august/packer.lua'
 alias lspconf='vi ~/.config/nvim/after/plugin/lsp-zero.lua'
-alias wmconf='vi ~/.config/i3/config'
-alias hyprconf='vi ~/.config/hypr/hyprland.conf'
+alias i3conf='vi ~/.config/i3/config'
+alias wmconf='vi ~/.config/hypr/hyprland.conf'
 
 ## Folders
 alias nvim_folder='cd ~/.config/nvim'
+alias nvim_plugins='cd ~/.config/nvim/lua/august/plugins'
+alias nvim_core='cd ~/.config/nvim/lua/august/core'
 alias tmux_folder='cd ~/.tmux'
 alias i3_folder='cd ~/.config/i3'
-alias conf= 'cd ~/.config'
+alias wm_folder='cd ~/.config/hypr'
 
 # ---
 
@@ -146,6 +152,18 @@ zplug load
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Use neovim to open man pages
+if [ -e /usr/bin/nvimpager ]; then
+    export PAGER=nvimpager
+else
+    sudo pacman -Syq --noconfirm --needed yay
+    yay -Syq --noconfirm --needed nvimpager
+    export PAGER=nvimpager
+fi
+
+# Edit .zshrc and add this line
+export PATH=$HOME/.config/rofi/scripts:$PATH
 
 # Turso
 export PATH="/home/august/.turso:$PATH"
