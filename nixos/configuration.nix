@@ -7,6 +7,7 @@
     imports = [ # Include the results of the hardware scan.
         ./hardware-configuration.nix
         ./services.nix
+        ./gpu_amd.nix
     ];
 
     # Bootloader
@@ -49,11 +50,7 @@
     users.users.august = {
         isNormalUser = true;
         description = "august";
-        extraGroups = [ "networkmanager" "wheel" ];
-        packages = with pkgs; [
-            firefox
-            # thunderbird
-        ];
+        extraGroups = [ "networkmanager" "wheel" "kvm" "libvirt" ];
     };
 
     # Allow unfree packages
@@ -67,18 +64,21 @@
 
         # Development
         git
-        lua go nodejs maven jdk21 gcc # language support
-        gnumake cmake meson ninja # package building
+        lua go nodejs maven jdk21 gcc python3 # language support
+        gnumake cmake meson ninja gnupatch libiconv libconfig pkg-config libev uthash # package building
 
         # Non-GUI Misc
         flatpak
+        snap
         pywal # wallpapers and coloring
         pavucontrol pulsemixer # TUI version of pavucontrol
         eza
         wine
+        gamescope
 
         # GUI Applications
         brave # web browser
+        microsoft-edge
         discord # vesktop # basically discord-screenaudio [build fails]
         steam
         quickemu # easy VMs
@@ -87,36 +87,11 @@
         # GUI Misc
         cpu-x
         dunst
-        rofi wofi # wayland version
-        eww
+        rofi
+        waybar
+        virt-manager
 
     ];
-
-    # Some programs need SUID wrappers, can be configured further or are
-    # started in user sessions.
-    # programs.mtr.enable = true;
-    # programs.gnupg.agent = {
-    #   enable = true;
-    #   enableSSHSupport = true;
-    # };
-
-    # List services that you want to enable:
-
-    # Enable the OpenSSH daemon.
-    # services.openssh.enable = true;
-
-    # Open ports in the firewall.
-    # networking.firewall.allowedTCPPorts = [ ... ];
-    # networking.firewall.allowedUDPPorts = [ ... ];
-    # Or disable the firewall altogether.
-    # networking.firewall.enable = false;
-
-    # This value determines the NixOS release from which the default
-    # settings for stateful data, like file locations and database versions
-    # on your system were taken. It‘s perfectly fine and recommended to leave
-    # this value at the release version of the first install of this system.
-    # Before changing this value read the documentation for this option
-    # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 
     system.stateVersion = "23.11"; # Did you read the comment?
 

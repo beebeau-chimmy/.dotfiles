@@ -1,23 +1,23 @@
 { config, pkgs, ... }: {
-    ## Display Manager ##
-
-    ## X11
     services.xserver.enable = true; # Enable the X11 windowing system.
 
     # Configure keymap in X11
     services.xserver = {
+        enable = true;
         layout = "us";
         xkbVariant = "";
+        displayManager.gdm.enable = true;
+        # desktopManager.gnome.enable = true;
     };
 
-    ## Gnome
-    # Enable the GNOME Desktop Environment.
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
-
     ## Hyprland
-    # programs.hyprland.enable = true;
-    # xdg.portal.wlr.enable = true; # to enable screensharing and whatnot
+    programs.hyprland.enable = true;
+    xdg.portal = {
+        gtk.enable = true;
+        gnome.enable = true;
+        wlr.enable = true;
+        hyprland.enable = true;
+    }
 
     services.printing.enable = true; # Enable CUPS to print documents.
 
@@ -36,5 +36,6 @@
     };
 
     services.openssh.enable = true;
+    services.snap.enable = true;
 
 }
