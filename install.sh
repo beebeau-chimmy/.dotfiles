@@ -15,7 +15,7 @@ check_for_config() {
 }
 
 copy_config() {
-    cp -r "$1" "$HOME/.config/$1"
+    cp -r "$HOME/repos/august/$1" "$HOME/.config/$1"
 }
 
 build_picom() {
@@ -196,6 +196,10 @@ copy_config nvim
 sudo cp -r ~/repos/.dotfiles/nvim /root/.config/ # Copy config for root
 
 printf "\nDone!\n\n"
+
+## Rofi config
+check_for_config rofi
+copy_config rofi
 
 # Copy Nerd Fonts
 printf "\nInstalling Nerd Fonts...\n\n"
