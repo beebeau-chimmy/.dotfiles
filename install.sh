@@ -3,14 +3,14 @@
 check_for_config() {
     local app=$1
 
-    if [ -d "$HOME/.config/$app" ]; then
-        mv "~/.config/$app" "~/.config/$app.backup"
-        sudo rm -rf "~/.config/$app"
+    if [ -d "$HOME/.config/${app}" ]; then
+        mv "$HOME/.config/${app}" "$HOME/.config/${app}.backup"
+        sudo rm -rf "$HOME/.config/${app}"
     fi
 
-    if [ "$app" = "nvim" ] && [ -d "/root/.config/$app" ]; then
-        mv "/root/.config/$app" "/root/.config/$app.backup"
-        sudo rm -rf "/root/.config/$app"
+    if [ "${app}" = "nvim" ] && [ -d "/root/.config/${app}" ]; then
+        mv "/root/.config/${app}" "/root/.config/${app}.backup"
+        sudo rm -rf "/root/.config/${app}"
     fi
 }
 
@@ -37,11 +37,20 @@ build_picom() {
     fi
 }
 
-# Find current distro
-if [ -e /usr/bin/rg ]; then
-    distro=$(rg --pcre2 -e '(?!ID_LIKE=)\w+$' /etc/os-release)
+# [?TODO?]: Change process to find distro to a menu to select "arch-base distro", "nixos", "etc"
+arch_distros=("arch" "manjaro" "endeavouros" "endeavour" "kali" "garuda")
+other_distros=("nixos")
+
+. /etc/os-release
+distro=$(echo "$ID")
+
+if ${distro,,} in "${arch_distros[@]}"; then
+    is_arch_distro=true
+elif ${distro,,} in "${other_distros[@]}"; then
+    is_arch_distro=false
+    is_nixos=true
 else
-    distro=$(grep --perl-regexp '(?!ID_LIKE=)\w+$' /etc/os-release)
+    is_arch_distro=false
 fi
 
 # Make "repos" folder
@@ -49,7 +58,8 @@ mkdir -p "$HOME/repos"
 
 # Install all needed dependencies
 printf "Installing All Needed Dependencies...\n"
-if [[ $distro == *"arch"* ]]; then
+## arch-based distro dependencies
+if [ ${is_arch_distro} ]; then
     sudo pacman -Syq --noconfirm --needed git curl yay make cmake gcc python3 meson ninja pkgconf libev uthash libconfig alacritty tmux zsh eza neovim lua go jdk17-openjdk nodejs npm python3 brave-browser dunst nitrogen
     yay -Syq --noconfirm --needed libiconv patch pywal-git
 fi
@@ -63,12 +73,15 @@ else
 fi
 cd "$HOME/repos/.dotfiles" || exit
 
+# [TODO]: Add nixos functionality to copy nixos configs / mv existing ones to "[file_name].nix.backup" or "/etc/nixos.backup/"
+
 # Choose window manager
 printf "\nWhat Window Manager do you want to use?\n"
 select wm in i3 Hyprland Quit; do
+    export PS3="Please enter your choice: "
     case $wm in
         "i3")
-            if [[ $distro == *"arch"* ]]; then
+            if [ ${is_arch_distro} ]; then
                 yay -Syq --noconfirm --needed i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar rofi
             fi
             printf "Copying i3 config...\n"
@@ -87,8 +100,8 @@ select wm in i3 Hyprland Quit; do
             copy_config dunst
             printf "Done!\n\n"
             break;;
-        "hyprland")
-            if [[ $distro == *"arch"* ]]; then
+        "Hyprland")
+            if [ ${is_arch_distro} ]; then
                 yay -Syq --noconfirm --needed hyprland waybar wofi
             fi
             printf "Copying Hyprland config...\n"
@@ -100,7 +113,7 @@ select wm in i3 Hyprland Quit; do
             printf "Done!\n\n"
             break;;
         "Quit")
-            printf "Exiting Script..."
+            printf "Exiting Script...\n"
             exit;;
     esac
 done
@@ -108,8 +121,6 @@ done
 # ZSH / Oh-My-ZSH
 ## Install ZSH
 printf "Installing ZSH / Oh-My-ZSH...\n"
-printf "\nChanging ZSH to default shell...\n\n"
-sudo chsh /bin/zsh # Change default shell
 
 if [ -e "$HOME/.zshrc" ]; then
     mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
@@ -118,8 +129,8 @@ fi # Moves existing .zshrc
 ## Install Oh-My-ZSH
 cd "$HOME" || exit
 if [ -d "$HOME/.oh-my-zsh" ]; then
-    read -p "Oh-My-Zsh is already installed. Do you want to reinstall? (Yes / No): " zsh_reinstall
-    if [ "$zsh_reinstall" = "Yes" ]; then
+    read -n "Oh-My-Zsh is already installed. Do you want to reinstall? [ y/n ]: " reinstall
+    if [ "${reinstall}" = 'y' ]; then
         rm -rf "$HOME/.oh-my-zsh"
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     fi
@@ -133,8 +144,8 @@ cp "$HOME/repos/.dotfiles/.zshrc" "$HOME/.zshrc" # Copy zsh config
 ## Install ZPlug
 printf "\nInstalling ZPlug...\n\n"
 if [ -d "$HOME/.zplug" ]; then
-    read -p "ZPlug is already installed. Do you want to reinstall? (Yes / No): " zplug_reinstall
-    if [ "$zplug_reinstall" = "Yes" ]; then
+    read -n "ZPlug is already installed. Do you want to reinstall? [ y/n ]: " reinstall
+    if [ "${reinstall}" = 'y' ]; then
         rm -rf "$HOME/.zplug"
         curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
     fi
@@ -142,10 +153,11 @@ else
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
 
-## Source zsh config
-# source "$HOME/.zshrc"
-
 cd "$HOME/repos/.dotfiles" || exit
+
+printf "\nChanging ZSH to default shell...\n\n"
+sudo chsh /bin/zsh # Change default shell
+
 printf "\nDone!\n\n"
 
 # Terminal
@@ -162,8 +174,8 @@ cp "$HOME/repos/.dotfiles/.tmux.conf" "$HOME/.tmux.conf" # Copy tmux config
 ## Install TPM for TMUX plugins
 printf "\nInstalling TPM...\n\n"
 if [ -d "$HOME/.tmux/plugins/tpm" ]; then
-    read -p "TPM is already installed. Do you want to reinstall? (Yes / No): " tpm_reinstall
-    if [ "$tpm_reinstall" = "Yes" ]; then
+    read -n "TPM is already installed. Do you want to reinstall? (Yes / No): " reinstall
+    if [ "${reinstall}" = 'y' ]; then
         rm -rf "$HOME/.tmux/plugins/tpm"
         git clone -q https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
         sh -c "$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh"
@@ -197,3 +209,5 @@ cp ~/repos/.dotfiles/misc/wallpapers/* ~/Pictures/wallpapers/
 
 printf "\nDone!\n\n"
 printf "All configs installed!! Exiting...\n"
+
+unset "$PS3"
