@@ -60,7 +60,7 @@ mkdir -p "$HOME/repos"
 printf "Installing All Needed Dependencies...\n"
 ## arch-based distro dependencies
 if [ ${is_arch_distro} ]; then
-    sudo pacman -Syq --noconfirm --needed git curl yay make cmake gcc python3 meson ninja pkgconf libev uthash libconfig alacritty tmux zsh eza neovim lua go jdk17-openjdk nodejs npm python3 brave-browser dunst nitrogen
+    sudo pacman -Syq --noconfirm --needed git curl yay make cmake gcc python3 meson ninja pkgconf libev uthash libconfig alacritty tmux zsh eza neovim lua go jdk17-openjdk nodejs npm python3 brave-browser dunst nitrogen maven rofi
     yay -Syq --noconfirm --needed libiconv patch pywal-git
 fi
 
@@ -82,7 +82,7 @@ select wm in i3 Hyprland Quit; do
     case $wm in
         "i3")
             if [ ${is_arch_distro} ]; then
-                yay -Syq --noconfirm --needed i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar rofi
+                yay -Syq --noconfirm --needed i3-gaps-rounded-git i3lock-fancy i3status i3blocks polybar
             fi
             printf "Copying i3 config...\n"
             check_for_config i3
@@ -102,7 +102,7 @@ select wm in i3 Hyprland Quit; do
             break;;
         "Hyprland")
             if [ ${is_arch_distro} ]; then
-                yay -Syq --noconfirm --needed hyprland waybar wofi
+                yay -Syq --noconfirm --needed hyprland waybar
             fi
             printf "Copying Hyprland config...\n"
             check_for_config hypr
