@@ -72,6 +72,7 @@
         snap
         pywal # wallpapers and coloring
         pavucontrol pulsemixer # TUI version of pavucontrol
+        wireplumber
         eza
         wine
         gamescope
