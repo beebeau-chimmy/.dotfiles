@@ -162,7 +162,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
 args = ["-l", "-c", "tmux"]
-program = "/bin/zsh"
+program = "zsh"
 
 [window]
 decorations = "full"
