@@ -36,7 +36,7 @@ vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 vim.keymap.set('x', '<leader>pp', '\"_dP')
 vim.keymap.set('n', '<leader>ss', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
-vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
+vim.keymap.set('n', '<leader>X', '<cmd>!chmod +x %<CR>', { silent = true })
 
 -- Telescope keybinds
 vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', {})
@@ -49,11 +49,11 @@ vim.keymap.set('i', 'jj', '<Esc>')
 vim.keymap.set('n', 'mm', '<S-a>')
 
 -- Clear search highlighting with <leader> and c
-vim.keymap.set('n', '<leader>q', ':nohl<CR>')
+vim.keymap.set('n', 'qq', ':nohl<CR>')
 
 -- Toggle auto-indenting for code paste
 vim.keymap.set('n', '<F2>', ':set invpaste paste?<CR>')
-vim.opt.pastetoggle = '<F2>'
+-- vim.opt.pastetoggle = 'TT'
 
 -- BarBar keyvim.keymap.sets
 -- Move to previous/next
@@ -94,7 +94,7 @@ vim.keymap.set('n', '<leader>r', ':so %<CR>')
 
 -----------------------------------------------------------
 -- Applications and Plugins shortcuts
------------------------------------------------------------
+----------------------------------------------------------
 
 -- Terminal vim.keymap.setpings
 vim.keymap.set('n', '<leader>;', '<Cmd>exe v:count1 . "ToggleTerm"<CR>' )
@@ -105,14 +105,14 @@ vim.keymap.set('n', '<C-n>', ':Neotree toggle right<CR>')            -- open/clo
 vim.keymap.set('n', '<leader>n', ':Neotree toggle right reveal=true<CR>')      -- search file
 
 -- Trouble
-vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
-vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
-vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
-vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
-vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
-vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
-vim.keymap.set("n", "gd", function() require("trouble").toggle('lsp_definitions') end)
-vim.keymap.set("n", "gD", function() require("trouble").toggle('lsp_type_definitions') end)
+vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end, { desc = "Trouble Toggle" })
+vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end, { desc = "Trouble Workspace Diagnostics" })
+vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end, { desc = "Trouble Document Diagnostics" })
+vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end, { desc = "Trouble Quickfix" })
+vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end, { desc = "Trouble Loclist" })
+vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end, { desc = "Trouble Lsp References" })
+vim.keymap.set("n", "gd", function() require("trouble").toggle('lsp_definitions') end, { desc = "Trouble Lsp Definitions" })
+vim.keymap.set("n", "gD", function() require("trouble").toggle('lsp_type_definitions') end, { desc = "Trouble Lsp Type Definitions" })
 
 -- Tagbar
 -- vim.keymap.set('n', '<leader>z', ':TagbarToggle<CR>')          -- open/close

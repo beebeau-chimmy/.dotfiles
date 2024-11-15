@@ -103,6 +103,7 @@ return {
   { 'ray-x/lsp_signature.nvim' },
 
   -- [ DAP ]
+  { 'nvim-neotest/nvim-nio' },
   { 'mfussenegger/nvim-dap' },
   { 'rcarriga/nvim-dap-ui', lazy = true, config = function() require('dapui').setup() end },
   { 'theHamsta/nvim-dap-virtual-text' },
@@ -115,5 +116,5 @@ return {
 
   { 'nvim-lua/plenary.nvim' },
 
-  { 'rest-nvim/rest.nvim',  dependencies = { 'nvim-lua/plenary.nvim' } }
+  -- { 'rest-nvim/rest.nvim',  dependencies = { 'nvim-lua/plenary.nvim' } }
 }
