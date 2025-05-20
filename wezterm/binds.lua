@@ -49,6 +49,9 @@ function module.apply_to_config(config)
             action = action.ActivatePaneDirection 'Down',
         },
 
+        -- [ Pasting ]
+        { key = 'V', mods = 'CTRL', action = action.PasteFrom 'Clipboard' },
+
         -- [ Resizing Panes ]
         {
             key = 'r',
